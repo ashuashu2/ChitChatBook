@@ -1,0 +1,23 @@
+.sidebar-icons-main-div{
+   margin: 3rem;
+
+}
+.sidebar-icons-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    
+    
+
+}
+
+.sidebar-icons-text{
+    
+   
+margin-right: auto;
+margin-left: 0.8rem;
+margin-bottom: 1.6rem;
+
+}

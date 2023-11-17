@@ -1,0 +1,51 @@
+.nav-div{
+    background-color: black;
+    color: White;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-image-div{
+    display: flex;
+    margin-left: 1.2rem;
+}
+
+
+.ccImage2{
+    height: 8ch;
+    width: 8ch;
+    border-radius:50%;
+}
+
+.cc-text{
+color: rgb(248, 212, 7); 
+   margin-right: 0.5rem;
+   font-style: oblique;
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 2.3rem;
+
+
+
+}
+
+.nav-search-div{
+    margin-right: 2rem;
+    width: 20%;
+   
+}
+
+.nav-search-input{
+    padding: 0.5rem;
+    border-radius: 1rem;
+    width: 100%;
+    text-align: center;
+   
+}
+
+
+.nav-profile-div{
+    display: flex;
+    margin-right: 2rem;
+
+}
+
