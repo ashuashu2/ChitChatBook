@@ -1,0 +1,48 @@
+html{
+    font-size: 100%;
+}
+.userfeed-bigger-div{
+   position: fixed;
+
+}
+.suggestion-text{
+    font-style: oblique;
+    margin-bottom: 1rem;
+}
+
+.users-main-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+    margin: 1rem;
+    
+}
+hr{
+    margin: 1rem;
+}
+.avatar{
+    height: 5ch;
+    width: 5ch;
+    border-radius: 50%;
+}
+
+
+.userfeed-name-div{
+
+    margin: 0.5rem;
+}
+.follow-button-div{
+    margin-left: auto;
+
+}
+h4{
+    margin: 0;
+}
+.follow-button{
+    background-color: rgb(37, 22, 22);
+    color:  rgb(248, 212, 7);
+    padding: 0.5rem;
+    border-radius: 1.2rem; 
+    font-weight: bolder;
+}

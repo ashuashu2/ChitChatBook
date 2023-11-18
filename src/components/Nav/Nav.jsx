@@ -5,7 +5,7 @@ import { FaBeer } from 'react-icons/fa';
 
 function Nav() {
     return(
-        <div>
+        <div className="navigation-main-div">
           <div className="nav-div">
             <div className="nav-image-div">
                 <h1  className="cc-text">ChitChat</h1> 

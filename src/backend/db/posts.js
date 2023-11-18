@@ -1,11 +1,9 @@
-import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
 
 /**
  * Posts can be added here.
  * You can add default posts of your wish with different attributes
  * */
-
 export const posts = [
   {
     _id: "xhzTkUi2Nt",
@@ -19,7 +17,7 @@ export const posts = [
     comments: [
       {
         _id: "okzxcf",
-        username: "janedoe",
+        username: "jannySehgal",
         text: "I agree!! Feels like we should go for outing. What say?",
         votes: {
           upvotedBy: [],
@@ -27,25 +25,11 @@ export const posts = [
         },
       },
     ],
-    username: "ashutosh",
+    username: "ashubirthare",
     createdAt: "2022-01-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
-  {
-    _id: "siFFxfYI1s",
-    content: "Started my Baking journey! Look what I made.",
-    mediaURL:
-      "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
-    likes: {
-      likeCount: 0,
-      likedBy: [],
-      dislikedBy: [],
-    },
-    comments: [],
-    username: "carlsmith",
-    createdAt: "2022-05-21T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
+ 
   {
     _id: "3XHvLP1fg",
     content: "I made this cake for my friend's birthday. Check it out",
@@ -67,7 +51,7 @@ export const posts = [
         },
       },
     ],
-    username: "janedoe",
+    username: "jannySehgal",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -108,7 +92,7 @@ export const posts = [
       },
       {
         _id: "QK52wf6HI1",
-        username: "janedoe",
+        username: "jannySehgal",
         text: "Wow! Looks Amazzing! Happy Birthday!",
         votes: {
           upvotedBy: [],
@@ -150,6 +134,21 @@ export const posts = [
     updatedAt: formatDate(),
   },
   {
+    _id: "siFFxfYI1s",
+    content: "Started my Baking journey! Look what I made.",
+    mediaURL:
+      "https://res.cloudinary.com/dtrjdcrme/video/upload/v1652188886/upload-socialmedia/oikev6eomsgahnvxcijd.mp4",
+    likes: {
+      likeCount: 0,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [],
+    username: "carlsmith",
+    createdAt: "2022-05-21T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
     _id: "GeMUAdi9mh",
     content:
       "No matter what people tell you, words and ideas can change the world.",
@@ -185,14 +184,14 @@ export const posts = [
         },
       },
     ],
-    username: "ashutosh",
+    username: "ashubirthare",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
   {
     _id: "Ie92xOSVeU",
     content:
-      "Check out this amazing video from BakinZone https://bakinzone.netlify.app/videos/qtlhdIfojmc",
+      "Check out this amazing video from youtube https://youtu.be/gDUzaANQ01A?si=lhzEu5hx5OFVVX0C",
     mediaURL: "",
     likes: {
       likeCount: 1,
@@ -202,7 +201,7 @@ export const posts = [
     comments: [
       {
         _id: "6fgd534s",
-        username: "janedoe",
+        username: "jannySehgal",
         text: "Yes! I am also learning from there!",
         votes: {
           upvotedBy: [],
@@ -226,7 +225,7 @@ export const posts = [
     comments: [
       {
         _id: "unImWvIzbf",
-        username: "ashutosh",
+        username: "ashubirthare",
         text: "So True!!",
         votes: {
           upvotedBy: [],
@@ -249,7 +248,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "ashutosh",
+    username: "ashubirthare",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -326,7 +325,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "ashutosh",
+    username: "ashubirthare",
     createdAt: "2022-04-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -358,7 +357,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "jannySehgal",
     createdAt: "2022-05-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -390,7 +389,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "ashutosh",
+    username: "ashubirthare",
     createdAt: "2022-01-15T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -421,7 +420,7 @@ export const posts = [
       dislikedBy: [],
     },
     comments: [],
-    username: "janedoe",
+    username: "jannySehgal",
     createdAt: "2022-02-10T10:55:06+05:30",
     updatedAt: formatDate(),
   },

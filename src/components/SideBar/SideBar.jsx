@@ -2,33 +2,41 @@ import { MdHome } from "react-icons/md";
 import { MdExplore } from "react-icons/md";
 import { FaBookmark } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
-
-
-
 import "./SideBar.css"
+import { NavLink } from "react-router-dom";
+
 
 function SideBar(){
+
+
+    const getActiveStyle = ({ isActive }) => ({
+       
+        fontWeight: isActive ? "600" : "200",
+        color: isActive ? "rgb(248, 212, 7)" : "",
+        fontSize: isActive ? "1.2rem":""
+      });
+
     return(
         <div className="sidebar-icons-main-div">
-            <div className="sidebar-icons-div">
-                <h2 className="sidebar-icons-emoji"> <MdHome/> </h2>
-                <h2 className="sidebar-icons-text">Home</h2>
-            </div>
+            <NavLink to="/"  style={getActiveStyle} className="sidebar-icons-div">
+                <h3 className="sidebar-icons-emoji"> <MdHome/> </h3>
+                <h3 className="sidebar-icons-text">Home</h3>
+            </NavLink>
 
-            <div className="sidebar-icons-div">
-                <h2 className="sidebar-icons-emoji"> <MdExplore/> </h2>
-                <h2 className="sidebar-icons-text">Explore</h2>
-            </div>
+            <NavLink to="/explore"  style={getActiveStyle} className="sidebar-icons-div">
+                <h3 className="sidebar-icons-emoji"> <MdExplore/> </h3>
+                <h3 className="sidebar-icons-text">Explore</h3>
+            </NavLink>
 
-            <div className="sidebar-icons-div">
-                <h2 className="sidebar-icons-emoji"> <FaBookmark/> </h2>
-                <h2 className="sidebar-icons-text">Bookmarks</h2>
-            </div>
+            <NavLink to="/bookmarks"  style={getActiveStyle} className="sidebar-icons-div">
+                <h3 className="sidebar-icons-emoji"> <FaBookmark/> </h3>
+                <h3 className="sidebar-icons-text">Bookmarks</h3>
+            </NavLink>
 
-            <div className="sidebar-icons-div">
-                <h2 className="sidebar-icons-emoji"> <FaHeart/> </h2>
-                <h2 className="sidebar-icons-text">Liked Posts</h2>
-            </div>
+            <NavLink to="/LikedPosts"  style={getActiveStyle} className="sidebar-icons-div">
+                <h3 className="sidebar-icons-emoji"> <FaHeart/> </h3>
+                <h3 className="sidebar-icons-text">Liked Posts</h3>
+            </NavLink>
 
            
 
