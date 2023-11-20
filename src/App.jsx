@@ -3,13 +3,18 @@ import { Home } from "./components/Home/Home";
 import { Nav } from "./components/Nav/Nav";
 import { UserFeed } from "./components/UsersFeed/UsersFeed";
 import { SideBar } from "./components/SideBar/SideBar";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import { Explore } from "./components/Explore/Explore";
 import { Bookmarks } from "./components/Bookmarks/Bookmarks";
 import { LikedPosts } from "./components/LikedPosts/Likedposts";
+import { SingleUser } from "./components/singleUserPage/SingleUser";
+import { SinglePostDetail } from "./components/SinglePostPage/SinglePost";
 
 
 function App() {
+
+
+
   return (
     <div className="App">
     <div className="navigation-div"> <Nav/> </div>
@@ -21,6 +26,10 @@ function App() {
         <Route path="/explore" element={<Explore/>} />
         <Route path="/bookmarks" element={<Bookmarks/>} />
         <Route path="/likedPosts" element={<LikedPosts/>} />
+        <Route path="/profile/:userId" element={<SingleUser />} />
+        <Route path="/posts/:postId" element={<SinglePostDetail />} />
+
+
 
       </Routes>
       

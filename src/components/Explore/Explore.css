@@ -1,79 +1,46 @@
 html{
     font-size: 100%;
 }
-.posts-bigger-div{
-    padding: 1.5rem;
-    width: 60%;
-
-    height: auto;
+.explore-page-main-div{
+    background-color: white;
+    padding: 1rem 2rem;
+    width: 70%;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 1px 0px 20px 8px;;
-    margin-top: 2rem;
 }
 
-.explore-posts-names{
-    font-weight: bolder;
-}
 
-.explore-posts-main-div{
+.explore-header-div {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 0;
-
-}
-.explore-image{
-    height: 5ch;
-    width: 5ch;
-    border-radius: 50%;
-    margin-top: 0.6rem;
-}
-.explore-content-div{
-    text-align: left;
+    background-color: rgb(187, 212, 212);
     margin: 0;
-    
+    padding: 0.5rem;
+
 
 }
 
-hr{
-    font-weight: 50;
-}
-.explore-content-text{
-    margin-top: 1.2rem;
-    margin-bottom: 1.2rem;
-}
-
-h2{
+.explore-header-icon {
+    margin-right: auto;
+    align-self: flex-start;
+    font-size: 1.8rem;
     margin: 0;
-}
-p{
-    margin: 0;
-}
-.explore-posts-userName{
-    margin: auto;
-    margin-left:1rem ;
-}
-.username{
-    margin-top: 0.1rem;
-}
-.post-date{
-    margin-bottom: 1rem;
-}
-embed{
-   width: 100%;
-    height: auto;
-   
-}
-.explore-buttons-div{
-    display: flex;
-    margin: 0;
-}
-.explore-buttons-div>button{
-    border: none;
-    font-size: 1.5rem;
-    background-color: white;
-    margin-right: 1.2rem;
-    cursor: pointer;
-    
+    margin-top: 0.5rem;
+    margin-left: 1.5rem;
+
+
+
+
 }
 
+
+.explore-header-text {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 800;
+    align-self: center;
+    flex-grow: 1;
+    margin: 0;
+
+
+}

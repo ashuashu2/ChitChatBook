@@ -5,9 +5,17 @@ html{
    position: fixed;
 
 }
+.users-img-div{
+    margin-top: 0.5rem;
+}
+.linkss{
+    color: black;
+    text-decoration: none;
+}
 .suggestion-text{
     font-style: oblique;
     margin-bottom: 1rem;
+    margin-top: 1rem;
 }
 
 .users-main-div{
@@ -45,4 +53,5 @@ h4{
     padding: 0.5rem;
     border-radius: 1.2rem; 
     font-weight: bolder;
+    cursor: pointer;
 }

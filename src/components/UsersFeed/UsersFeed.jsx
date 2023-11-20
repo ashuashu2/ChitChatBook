@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./UsersFeed.css"
 import { useSelector,useDispatch } from "react-redux";
 import { fetchUsers } from "../../Redux Management/features/postSlice/userSlice/userServices";
+import { Link } from "react-router-dom";
 
 function UserFeed(){
 
@@ -19,7 +20,6 @@ function UserFeed(){
     },[status,dispatch])
 
 
-    console.log(error)
 
    
 
@@ -31,14 +31,14 @@ function UserFeed(){
                     { sliceUsers && sliceUsers.map((user)=>(
                         <div>
                             <div className="users-main-div" key={user._id}>
-                            <div className="users-img-div"> 
+                            <Link to={`/profile/${user._id}`} className="users-img-div linkss"> 
                                 <img  className="avatar" src={user.avatarUrl} alt="" />
-                            </div>
+                            </Link>
 
-                            <div className="userfeed-name-div">
+                            <Link to={`/profile/${user._id}`} className="userfeed-name-div linkss">
                                 <h4>{user.firstName} {user.lastName}</h4>
                                 <small> {`@${user.username}`} </small>
-                            </div>
+                            </Link>
 
                             <div className="follow-button-div">
                                 <button className="follow-button">+Follow</button>
