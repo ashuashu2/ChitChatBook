@@ -5,6 +5,8 @@ import { fetchPosts } from "./postsServices";
 
 const initialState={
     posts:[],
+    bookmark:[],
+    likedPost:[],
     status:"initial",
     error:null
 }

@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import ashu from "../../components/images/ashu.jpg"
+import ashu from "../../images/ashu.jpg"
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -13,7 +13,7 @@ export const users = [
     firstName: "Adarsh",
     lastName: "Balika",
     followers:[],
-    followings:[],
+    following:[],
     username: "adarshbalika",
     password: "adarshBalika123",
     bio: "Be yourself!",
@@ -29,7 +29,7 @@ export const users = [
     firstName: "John",
     lastName: "Doe",
     followers:[],
-    followings:[],
+    following:[],
     username: "johndoe",
     password: "johndoe123",
     bio: "Hello World",
@@ -45,7 +45,7 @@ export const users = [
     firstName: "Janny",
     lastName: "Sehgal",
     followers:[],
-    followings:[],
+    following:[],
     username: "jannySehgal",
     password: "jannySehgal123",
     bio: "Whats in bio?",
@@ -61,7 +61,7 @@ export const users = [
     firstName: "Carl",
     lastName: "Smith",
     followers:[],
-    followings:[],
+    following:[],
     username: "carlsmith",
     password: "carlsmith123",
     bio: "Whats in bio?",
@@ -79,7 +79,7 @@ export const users = [
     firstName: "Alex",
     lastName: "Maxwell",
     followers:[],
-    followings:[],
+    following:[],
     username: "alexmaxwell",
     password: "alexmaxwell123",
     bio: "What's up?",
@@ -96,7 +96,7 @@ export const users = [
     firstName: "Sophia",
     lastName: "Jones",
     followers:[],
-    followings:[],
+    following:[],
     username: "sophiajones",
     password: "sophiajones123",
     bio: "Frontend Engineer",
@@ -112,7 +112,7 @@ export const users = [
     firstName: "Ashu",
     lastName: "Birthare",
     followers:[],
-    followings:[],
+    following:[],
     username: "ashubirthare",
     password: "ashubirthare123",
     bio: "Aspiring Frontend Engineer",

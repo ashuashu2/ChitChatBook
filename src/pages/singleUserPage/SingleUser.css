@@ -1,0 +1,266 @@
+html {
+    font-size: 100%;
+}
+
+.singleuser-main-div {
+    margin: auto;
+}
+
+.userdata-main-div {
+    background-color: white;
+    padding: 1rem 2rem;
+    width: 70%;
+    margin: auto;
+
+
+
+}
+
+
+
+
+.single-user-header-div {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    background-color: rgb(187, 212, 212);
+    padding: 1rem;
+
+
+}
+
+.single-user-header-icon {
+    font-size: 2rem;
+    margin-top: 1rem;
+
+}
+
+.single-user-header-text {
+    margin-left: 2rem;
+    margin-top: 1rem;
+
+}
+
+.single-user-header-text-name {
+    margin: 0;
+
+}
+
+.single-user-header-text-posts {
+    margin: 0;
+
+}
+
+.userdata-div {
+    text-align: left;
+    display: flex;
+
+
+
+}
+
+
+
+.userdata-image {
+    width: 30%;
+    height: 17ch;
+    border-radius: 50%;
+}
+
+.userdata-firstname-div {
+
+    margin: auto;
+    margin-top: 1rem;
+
+}
+
+.userdata-firstname {
+    font-weight: bolder;
+    font-size: 1.3rem;
+
+}
+
+.singleuser-website-div {
+    display: flex;
+}
+
+.singleuser-follow-button-div {
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 1rem;
+
+}
+
+.singleuser-follow-button {
+    background-color: rgb(78, 43, 43);
+    color: rgb(248, 212, 7);
+    padding: 0.5rem;
+    border-radius: 1.2rem;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.singleuser-bio-div {
+    text-align: left;
+    margin-top: 1.1rem;
+}
+
+.singleuser-bio-text {
+    margin-bottom: 0.5rem;
+
+}
+
+.singleuser-bio-Link {
+
+
+    color: black;
+    background-color: rgb(248, 238, 238);
+    border-radius: 1rem;
+    align-self: center;
+    padding: 0.2rem;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    text-decoration: none;
+
+}
+
+.followers-div {
+    display: flex;
+    justify-content: center;
+}
+
+.followers-childs {
+    margin-left: 3rem;
+
+    margin-top: 0rem;
+    font-weight: 500;
+}
+
+.followers-childs:nth-child(1) {
+    margin-left: 0rem;
+
+}
+
+.single-user-hr {
+    width: 100%;
+
+    margin: 0.7rem 0rem;
+}
+
+.singleuser-about-div {
+    text-align: left;
+}
+
+.singleuser-about-heading {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.contact-detail-div {
+    text-align: left;
+}
+
+.contact-detail-heading {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+<div>
+{userData && (<div className="singleuser-main-div">
+
+    <div className="single-user-header-div">
+        <div className="single-user-header-icon"> <IoArrowBackOutline /> </div>
+        <div className="single-user-header-text">
+            <h5 className="single-user-header-text-name">{`${userData.firstName} ${userData.lastName}`} </h5>
+
+            <p className="single-user-header-posts"> 2 posts </p>
+        </div>
+    </div>
+    <div className="userdata-main-div">
+
+        <div className="userdata-div">
+            <img className="userdata-image" src={userData.avatarUrl} alt="" />
+            <div className="userdata-firstname-div">
+                <p className="userdata-firstname"> {`${userData.firstName} ${userData.lastName}`} </p>
+                <p> SDE-1 at Google </p>
+                <div className="singleuser-bio-div">
+                    <p className="singleuser-bio-text"> {userData.bio} </p>
+                    <div className="singleuser-website-div">
+                        <h3><FaHandPointRight /></h3>
+                        <Link className="singleuser-bio-Link" to={userData.website} >   {userData.website} </Link>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div className="singleuser-follow-button-div">
+                <button className="singleuser-follow-button">+Follow</button>
+
+            </div>
+        </div>
+
+        <hr className="single-user-hr" />
+        <div className="followers-div">
+            <p className="followers-childs"> followings: {userData.followings.length} </p>
+            <p className="followers-childs"> posts: {userData.posts} </p>
+            <p className="followers-childs"> followers: {userData.followers.length} </p>
+        </div>
+        <hr className="single-user-hr" />
+
+        <div className="singleuser-about-div">
+            <h5 className="singleuser-about-heading"> About </h5>
+            <p>
+                I am a software developer who is well versed with JavaScript/ES6+,ReactJS & Redux and an intermediate in UI/UX concepts. I can build web apps also eager to learn new technologies and methodologies
+            </p>
+        </div>
+        <hr className="single-user-hr" />
+        <div className="contact-detail-div">
+            <h5 className="contact-detail-heading">Contact Me</h5>
+            <p> <FaMobileButton /> 9179910419</p>
+            <p> <MdEmail /> {`${userData.firstName.toLocaleLowerCase()}${userData.lastName.toLocaleLowerCase()}@gmail.com`}  </p>
+
+        </div>
+        <hr className="single-user-hr" />
+        <div className="singleuser-posts-div">
+            {posts.map((post) => post.username === userData.username && (
+
+                <div>
+                    <PostComponent posts={post} />
+                </div>
+            ))}
+        </div>
+
+    </div>
+
+</div>)}
+</div> */

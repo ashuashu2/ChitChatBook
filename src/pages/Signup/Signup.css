@@ -1,0 +1,72 @@
+.signup-main-div{
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+    margin-top: 1.5rem;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: rgb(250, 247, 247);
+
+
+}
+.signup-small-div{
+    background-color: rgb(194, 169, 169);
+    width: 30%;
+    
+}
+.signup-heading{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.signup-heading>h2{
+   font-style: oblique;
+    }
+.CC-text-signup{
+    color: gold;
+    margin-right: 0.5rem;
+    padding: 0.2rem 0.7rem;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.signup-text{
+    font-style: oblique;
+}
+
+.signup-input-div{
+    margin: 0rem;
+    margin-bottom: 0.2rem;
+}
+.signup-input-div>fieldset{
+    width: 70%;
+    margin: auto;
+    border: 0;
+    
+ 
+ }
+.signup-input-div>fieldset>input{
+   width: 100%;
+   padding: 0.5rem;
+
+}
+
+.signup-input-div>fieldset>legend{
+    text-align: left;
+    font-weight: 500;
+   
+
+
+}
+.signup-button-div>button{
+    padding: 0.5rem;
+    border: none;
+    background-color: black;
+    color:  gold;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+
+}
+

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import "./SinglePost.css"
 import { useSelector } from "react-redux"
-import { PostComponent } from "../PostComponent/PostComponent"
+import { PostComponent } from "../../components/componentsIndex"
 
 function SinglePostDetail() {
     const { postId } = useParams()

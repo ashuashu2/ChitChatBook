@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { fetchPosts } from "../../Redux Management/features/postSlice/postsServices"
-import { PostComponent } from "../PostComponent/PostComponent"
+import { PostComponent } from "../../components/componentsIndex"
 import { useEffect } from "react"
 import { IoArrowBackOutline } from "react-icons/io5";
 

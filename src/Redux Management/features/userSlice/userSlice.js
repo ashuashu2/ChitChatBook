@@ -1,5 +1,5 @@
 import {  createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "./userServices";
+import { fetchUsers } from "./userServices" ;
 
 
 

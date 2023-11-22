@@ -13,6 +13,7 @@ z-index: 5;
 .nav-image-div{
     display: flex;
     margin-left: 1.2rem;
+    text-decoration: none;
 }
 
 

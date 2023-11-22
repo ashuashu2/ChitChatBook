@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import "./UsersFeed.css"
 import { useSelector,useDispatch } from "react-redux";
-import { fetchUsers } from "../../Redux Management/features/postSlice/userSlice/userServices";
 import { Link } from "react-router-dom";
+import { fetchUsers } from "../../Redux Management/features/userSlice/userServices";
 
 function UserFeed(){
 

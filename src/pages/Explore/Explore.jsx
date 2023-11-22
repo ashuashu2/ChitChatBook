@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { fetchPosts } from "../../Redux Management/features/postSlice/postsServices"
 import "./Explore.css"
-import { PostComponent } from "../PostComponent/PostComponent";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
+import { PostComponent } from "../../components/componentsIndex";
 
 function Explore(){
     const { posts,status,error } = useSelector((state)=>state.postsSlice)
