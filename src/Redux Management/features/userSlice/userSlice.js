@@ -23,7 +23,7 @@ export const usersSlice = createSlice({
         },
         [fetchUsers.rejected]: (state, action) => {
             state.status = "error"
-            state.error = "error..."
+            state.error = "error... "
         },
 
 
