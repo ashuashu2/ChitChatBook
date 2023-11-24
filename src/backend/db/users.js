@@ -107,19 +107,5 @@ export const users = [
     createdAt: "2022-01-06T10:55:06+05:30",
     updatedAt: formatDate(),
   },
-  {
-    _id: "o5gzWjEeX_",
-    firstName: "Ashu",
-    lastName: "Birthare",
-    followers:[],
-    following:[],
-    username: "ashubirthare",
-    password: "ashubirthare123",
-    bio: "Aspiring Frontend Engineer",
-    bookmarks: [],
-    avatarUrl:ashu,
-    website: "https://ashutoshportfolios.netlify.app/",
-    createdAt: "2022-01-04T10:55:06+05:30",
-    updatedAt: formatDate(),
-  },
+  
 ];

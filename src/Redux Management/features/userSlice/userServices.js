@@ -8,3 +8,17 @@ export const fetchUsers = createAsyncThunk("userSlice/fetchUsers",async()=>{
        
    
 })
+export const followUser = createAsyncThunk(
+       "/users/followUser",
+       async ({ followUserId, token ,dispatch}) => {
+           try {
+               const response = await axios.post(`/api/users/follow/${followUserId}`, {}, { headers: { authorization :token} }
+               );
+               dispatch(editUserProfile({ userDetails: response.data.user, token }));
+   
+               return response.data;
+           } catch (error) {
+               console.error(error.response.data);
+           }
+       }
+   );

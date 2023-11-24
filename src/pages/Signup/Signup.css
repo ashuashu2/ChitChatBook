@@ -1,3 +1,6 @@
+html{
+    font-size: 100%;
+}
 .signup-main-div{
     display: flex;
     overflow-x: hidden;
@@ -5,12 +8,10 @@
     margin-top: 1.5rem;
     min-height: 100vh;
     width: 100vw;
-    background-color: rgb(250, 247, 247);
 
 
 }
 .signup-small-div{
-    background-color: rgb(194, 169, 169);
     width: 30%;
     
 }
@@ -22,16 +23,17 @@ align-items: center;
 .signup-heading>h2{
    font-style: oblique;
     }
-.CC-text-signup{
+.up-text-signup{
     color: gold;
-    margin-right: 0.5rem;
-    padding: 0.2rem 0.7rem;
+    padding: 0rem 0.7rem;
+    padding-bottom: 0.5rem;
     background-color: black;
     border-radius: 50%;
 }
 
-.signup-text{
+.signup-text-div{
     font-style: oblique;
+    margin-top: 1rem;
 }
 
 .signup-input-div{
@@ -70,3 +72,29 @@ align-items: center;
 
 }
 
+
+.signuppage-login-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.4rem;
+}
+
+
+
+@media screen and (max-width: 900px) {
+    .signup-small-div{
+        width: 50%;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .signup-small-div{
+        width: 70%;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .signup-small-div{
+        width: 90%;
+    }
+  }

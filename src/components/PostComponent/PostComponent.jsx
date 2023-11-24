@@ -72,7 +72,7 @@ function PostComponent({ posts }) {
                 <div> {posts.comments.map((comment) => (
                    <div className="comment-box-main-div" key={comment._id}>
                        <div className="comment-box-div">  { users.map((us)=>us.username === comment.username && 
-                           <div className="comment-box-user-div" >
+                           <div  key={us._id}  className="comment-box-user-div" >
                               <Link className="comment-box-user-image-div" to={`/profile/${us._id}`}> 
                                      <img className="comment-box-user-image" src={us.avatarUrl} alt="" /> 
                               </Link>

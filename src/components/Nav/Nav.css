@@ -17,12 +17,15 @@ z-index: 5;
 }
 
 
-.ccImage2{
-    height: 8ch;
-    width: 8ch;
+.nav-profile-image{
+    height: 6ch;
+    width: 6ch;
     border-radius:50%;
 }
 
+.nav-profile-image-div{
+    display: flex;
+}
 .cc-text{
 color: rgb(248, 212, 7); 
    margin-right: 0.5rem;

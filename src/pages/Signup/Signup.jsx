@@ -3,7 +3,7 @@ import "./Signup.css"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signupHandler } from "../../Redux Management/features/authSlice/AuthServices";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function SignupComponent() {
 
@@ -13,7 +13,7 @@ function SignupComponent() {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [userName, setUserName] = useState("");
+    const [username, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const { status } = useSelector((state)=>state.authSlice)
     const navigate = useNavigate()
@@ -24,16 +24,23 @@ function SignupComponent() {
             firstName: firstName,
             lastName: lastName,
             email: email,
-            Username: userName,
+            username: username,
             password: password
         }
         try {
+            if (firstName.length >=1 && lastName.length >=1 && username.length >=1 && email.length >=1 && password.length >=1 ) {
 
-            dispatch(signupHandler(data)).then(() => {
+                dispatch(signupHandler(data)).then(() => {
                 setTimeout(() => {
                   navigate("/login");
                 }, 500);
               })
+            }else{
+                alert("please fill all the credentials")
+
+            }
+
+            
             
 
         } catch (error) {
@@ -46,11 +53,8 @@ function SignupComponent() {
     return (
         <div className="signup-main-div">
             <div className="signup-small-div">
-                <div className="signup-heading">
-                    <h1 className="CC-text-signup">CC</h1>
-                    <h2>ChitChat</h2>
-                </div>
-                <h2 className="signup-text">Sign-up</h2>
+                
+                <h2 className="signup-text-div">Sign-<span className="up-text-signup">up</span> </h2>
                 <div className="signup-input-div">
                     <fieldset>
                         <legend>FirstName :</legend>
@@ -86,6 +90,11 @@ function SignupComponent() {
                 </div>
                 <div className="signup-button-div">
                     <button onClick={signupButtonHandler} >Sign up</button>
+                </div>
+
+                <div className="signuppage-login-link">
+                <h4>Already have an account?</h4>
+                <Link  className="Sign-up-here-link" to="/login">Log in here</Link>
                 </div>
 
 

@@ -4,7 +4,7 @@ import { fetchPosts } from "./postsServices";
 
 
 const initialState={
-    posts:[],
+    posts:  [] ,
     bookmark:[],
     likedPost:[],
     status:"initial",

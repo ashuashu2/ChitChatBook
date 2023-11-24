@@ -28,3 +28,30 @@ margin-left: 0.8rem;
 margin-bottom: 1.6rem;
 
 }
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    .sidebar-icons-text{
+        display: none;
+        
+        }
+        .sidebar-icons-main-div{
+            margin: 1rem;
+           
+         
+         }
+        
+  }
+  @media screen and (max-width: 500px) {
+    .login-small-div{
+        width: 90%;
+    }
+  }

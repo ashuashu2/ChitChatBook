@@ -2,12 +2,14 @@ import { useEffect, useState } from "react"
 import "./UsersFeed.css"
 import { useSelector,useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchUsers } from "../../Redux Management/features/userSlice/userServices";
+import { fetchUsers, followUser } from "../../Redux Management/features/userSlice/userServices";
 
 function UserFeed(){
 
-   const { users ,status,error } = useSelector((state)=>state.userSlice)
+   const { users ,status } = useSelector((state)=>state.userSlice)
    const dispatch = useDispatch();
+   const { token } = useSelector((state)=>state.authSlice)
+
 
 
 
@@ -18,6 +20,11 @@ function UserFeed(){
         }
 
     },[status,dispatch])
+    
+    function followButtonHandler(id,token){
+
+        dispatch(followUser({ followUserId: id, token ,dispatch }));   
+     }
 
 
 
@@ -32,7 +39,7 @@ function UserFeed(){
                         <div>
                             <div className="users-main-div" key={user._id}>
                             <Link to={`/profile/${user._id}`} className="users-img-div linkss"> 
-                                <img  className="avatar" src={user.avatarUrl} alt="" />
+                                <img  className="avatar" src={user.avatarUrl} alt="/" />
                             </Link>
 
                             <Link to={`/profile/${user._id}`} className="userfeed-name-div linkss">
@@ -41,7 +48,7 @@ function UserFeed(){
                             </Link>
 
                             <div className="follow-button-div">
-                                <button className="follow-button">+Follow</button>
+                                <button className="follow-button" onClick={()=>followButtonHandler(user._id,token)} >+Follow</button>
 
                             </div>
 
