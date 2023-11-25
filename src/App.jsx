@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 function App() {
-  const { pathname } = useLocation()
+  const { pathname  } = useLocation()
 
 
   
