@@ -32,6 +32,7 @@ html {
 .userCard-header-icon {
     font-size: 2rem;
     margin-top: 1rem;
+    cursor: pointer;
 
 }
 
@@ -87,7 +88,7 @@ html {
 
 .userCard-follow-button-div {
     margin-left: auto;
-    margin-right: 2rem;
+    margin-right: 0rem;
     margin-top: 1rem;
     display: flex;
 
@@ -101,14 +102,40 @@ html {
     font-weight: bolder;
     cursor: pointer;
 }
+.edit-profile-button-div{
+    position: relative;
 
-.edit-profile-button {
-    border: 0.5px solid black;
-    background-color: white;
-    font-weight: 900;
-    cursor: pointer;
+
 }
 
+.edit-profile-button {
+    cursor: pointer; 
+    font-size: 1.8rem;
+    background-color: white;
+    border: 0;
+    border-radius: 50%;
+}
+.edit-profile-text{
+    background-color: rgb(243, 248, 247);
+    box-shadow: 2px 2px 0px 0px rgb(243, 248, 247);
+    font-weight: 600;
+    height: 3vh;
+    padding: 0.2rem 1rem;
+    position: absolute;
+    top: 70%;
+    right:  80%; 
+    display: none;
+}
+
+.edit-profile-button:hover + .edit-profile-text{
+    display: block;
+
+}
+.logout-button-div{
+    position: relative;
+
+
+}
 .userCard-logout-button {
     background-color: black;
     color: gold;
@@ -117,11 +144,25 @@ html {
     border-radius: 3rem;
     cursor: pointer;
     margin-left: 0.6rem;
-    font-size: 1rem;
+    font-size: 1.3rem;
     font-weight: 900;
 
 }
+.logout-text{
+    background-color: rgb(243, 248, 247);
+    box-shadow: 2px 2px 0px 0px rgb(243, 248, 247);
+    font-weight: 600;
+    height: 3vh;
+    padding: 0.2rem 1rem;
+    position: absolute;
+    top: 70%;
+    left:  80%; 
+    display: none;
+}
 
+.userCard-logout-button:hover + .logout-text{
+  display: block;
+}
 .userCard-bio-div {
     text-align: left;
 }

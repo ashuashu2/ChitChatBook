@@ -6,12 +6,12 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
 import { useEffect } from "react";
 import avatarimage from "../../images/avatarimage.jpg"
-
-import "./UserCard.css"
+import "./UserCard.css";
+import { FaUserEdit } from "react-icons/fa";
 import { fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { PostComponent } from "../componentsIndex";
 import { logoutUser } from "../../Redux Management/features/authSlice/AuthSlice";
-import { followUser } from "../../Redux Management/features/userSlice/userServices";
+import { followUser, unFollowUser } from "../../Redux Management/features/userSlice/userServices";
 
 
 
@@ -19,7 +19,10 @@ function UserCard({ userData }) {
     const { pathname } = useLocation()
     const { posts, status } = useSelector((state) => state.postsSlice)
     const dispatch = useDispatch()
-    const { token } = useSelector((state) => state.authSlice)
+    const { token, userData: authUserData } = useSelector((state) => state.authSlice)
+    const location = useLocation()
+    const from = location?.state?.from.pathname
+    const navigate = useNavigate()
 
 
 
@@ -31,14 +34,21 @@ function UserCard({ userData }) {
     }, [dispatch, status])
 
 
-    const postsData =   posts.filter((post) => post.username === userData.username)
+    const postsData = userData &&  posts.filter((post) => post.username === userData.username && post )
 
 
-    function followButtonHandler(){
+    function followButtonHandler() {
         dispatch(
-            followUser({ followUserId: userData._id, token })
-          )
+            followUser({ followUserId: userData._id, token, dispatch, userData })
+        )
     }
+
+    function unFollowButtonHandler() {
+        dispatch(
+            unFollowUser({ followUserId: userData._id, token, dispatch, userData })
+        )
+    }
+
 
 
 
@@ -51,10 +61,10 @@ function UserCard({ userData }) {
 
     return (
         <div>
-            {userData.username && (<div className="userCard-main-div">
+            {userData && (<div className="userCard-main-div">
 
                 <div className="userCard-header-div">
-                    <div className="userCard-header-icon"> <IoArrowBackOutline /> </div>
+                    <div className="userCard-header-icon" onClick={() => navigate(from ? from : "/home")} > <IoArrowBackOutline /> </div>
                     <div className="userCard-header-text">
                         <h5 className="userCard-header-text-name">{`${userData.firstName} ${userData.lastName}`} </h5>
 
@@ -82,15 +92,34 @@ function UserCard({ userData }) {
 
                         <div>
                             {pathname === `/myaccount` ?
+
                                 (<div className="userCard-follow-button-div">
-                                    <button className="edit-profile-button">Edit Profile</button>
-                                    <button className="userCard-logout-button" onClick={() => dispatch(logoutUser())()} > <MdOutlineLogout /></button>
+                                    <div className="edit-profile-button-div">
+                                        <button className="edit-profile-button"><FaUserEdit /></button>
+                                        <small  className="edit-profile-text">Edit</small>
+
+                                    </div>
+                                    
+                                    <div className="logout-button-div">
+                                        <button className="userCard-logout-button" onClick={() => dispatch(logoutUser())} > <MdOutlineLogout /></button>
+                                        <small  className="logout-text">logout</small>
+                                    </div>
+
 
                                 </div>)
-                                : (<div className="userCard-follow-button-div">
-                                    <button className="userCard-follow-button"  onClick={followButtonHandler} > +Follow </button>
+                                : (
+                                    <div className="userCard-follow-button-div">
+                                        {authUserData.following.some((item) => item.username === userData.username)
 
-                                </div>)}
+                                            ? <button className="userCard-follow-button" onClick={unFollowButtonHandler} > UnFollow </button>
+
+                                            : <button className="userCard-follow-button" onClick={followButtonHandler} > +Follow </button>}
+
+
+
+                                    </div>
+                                )
+                            }
                         </div>
 
 
@@ -116,18 +145,18 @@ function UserCard({ userData }) {
                     <div className="contact-detail-div">
                         <h5 className="contact-detail-heading">Contact Me</h5>
                         <p> <FaMobileButton /> 9179910419</p>
-                        <p> <MdEmail /> {`${userData.firstName.toLocaleLowerCase()}${userData.lastName.toLocaleLowerCase()}@gmail.com`}  </p>
+                        <p> <MdEmail /> {`${userData.firstName.toLowerCase()}${userData.lastName.toLowerCase()}@gmail.com`}  </p>
 
                     </div>
                     <hr className="userCard-hr" />
                     <div className="userCard-posts-div">
-                       
-                          {  posts.map((post) => post.username === userData.username && (
 
-                                <div>
-                                    <PostComponent posts={post} />
-                                </div>
-                            ))
+                        {posts.map((post) => post.username === userData.username && (
+
+                            <div>
+                                <PostComponent posts={post} />
+                            </div>
+                        ))
 
                         }
 

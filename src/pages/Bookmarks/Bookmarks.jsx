@@ -1,14 +1,34 @@
-import { IoArrowBackOutline } from "react-icons/io5"
 import "./Bookmarks.css"
+import { useSelector } from "react-redux"
+import { PostComponent } from "../../components/PostComponent/PostComponent"
+import { ArrowButtonHeader } from "../../components/ArrowButtonHeader/ArrowButtonHeader";
 
-function Bookmarks(){
+function Bookmarks() {
+    const { userData } = useSelector((state) => state.authSlice);
+
+
+
+
+
     return (
-         <div className="bookmarksPage-main-div">
-            <div className="bookmarks-header-div">
-                    <h4 className="bookmarks-header-icon"> <IoArrowBackOutline /> </h4>
-                        <h4 className="bookmarks-header-text"> Bookmarked </h4>
-                </div>
+        <div >
+            <div> <ArrowButtonHeader pathname="Bookmark Posts" /> </div>
+
+            <div>
+                {userData.bookmarks.length >= 1 ?
+                    (<div>
+                        {userData.bookmarks.map((post) => (
+                            <div>
+                                <PostComponent posts={post} />
+                            </div>
+
+                        ))}
+                    </div>)
+                    : (<h1 className="No_Bookmark_Posts_heading"> No Bookmark Posts Yet </h1>)
+                }
+
+            </div>
         </div>
     )
 }
-export {Bookmarks }
+export { Bookmarks }

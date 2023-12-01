@@ -1,6 +1,5 @@
 import { v4 as uuid } from "uuid";
 import { formatDate } from "../utils/authUtils";
-import ashu from "../../images/ashu.jpg"
 /**
  * User Database can be added here.
  * You can add default users of your wish with different attributes
@@ -17,10 +16,23 @@ export const users = [
     username: "adarshbalika",
     password: "adarshBalika123",
     bio: "Be yourself!",
-    bookmarks: [],
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651473734/socialmedia/avatars/adarsh-balika_dct6gm.webp",
     website: "https://adasrshBalika.netlify.app/",
+    createdAt: "2022-01-01T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
+    _id: "jwcZfWIp-j",
+    firstName: "jenifer",
+    lastName: "winget",
+    followers:[],
+    following:[],
+    username: "jenniferwinget",
+    password: "jenniferwinget123",
+    bio: "live like a queen!",
+    avatarUrl:
+      "https://e1.pxfuel.com/desktop-wallpaper/678/333/desktop-wallpaper-jennifer-winget-iphone-jennifer-winget-thumbnail.jpg",
     createdAt: "2022-01-01T10:55:06+05:30",
     updatedAt: formatDate(),
   },
@@ -33,7 +45,6 @@ export const users = [
     username: "johndoe",
     password: "johndoe123",
     bio: "Hello World",
-    bookmarks: [],
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554207/socialmedia/avatars/john-doe_gbkuda.webp",
     website: "https://JohnDoe.netlify.app/",
@@ -49,7 +60,6 @@ export const users = [
     username: "jannySehgal",
     password: "jannySehgal123",
     bio: "Whats in bio?",
-    bookmarks: [],
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1651554256/socialmedia/avatars/jane-doe_il3cvx.webp",
     website: "https://JannySehgal.netlify.app/",
@@ -83,7 +93,6 @@ export const users = [
     username: "alexmaxwell",
     password: "alexmaxwell123",
     bio: "What's up?",
-    bookmarks: [],
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525373/socialmedia/avatars/alex-maxwell.webp",
     website: "https://AlexMaxeell.netlify.app/",
@@ -100,7 +109,6 @@ export const users = [
     username: "sophiajones",
     password: "sophiajones123",
     bio: "Frontend Engineer",
-    bookmarks: [],
     avatarUrl:
       "https://res.cloudinary.com/dtrjdcrme/image/upload/v1652525510/socialmedia/avatars/sophia-jones.webp",
     website: "https://SophiaJones.netlify.app/",

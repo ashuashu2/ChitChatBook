@@ -4,7 +4,7 @@ import { fetchUsers, followUser } from "./userServices";
 
 
 const initialState = {
-    users:  [],
+    users: [],
     status: "initial",
     error: null
 }
@@ -31,7 +31,6 @@ export const usersSlice = createSlice({
             state.status = "pending"
         },
         [followUser.fulfilled]: (state, action) => {
-
             state.users = state.users.map((currUser) =>
                 currUser._id === action.payload.followUser._id
                     ? action.payload.followUser
@@ -41,7 +40,6 @@ export const usersSlice = createSlice({
         },
         [followUser.rejected]: (state, action) => {
             state.status = "error"
-            console.log(action)
             state.error = "error"
 
         },

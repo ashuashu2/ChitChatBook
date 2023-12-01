@@ -3,6 +3,7 @@ html{
 }
 .userfeed-bigger-div{
    position: fixed;
+   height: 100%;
 
 }
 .users-img-div{

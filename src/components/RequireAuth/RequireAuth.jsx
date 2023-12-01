@@ -9,6 +9,6 @@ function RequireAuth({children}){
 
     return login ? 
      (children) : 
-     (<Navigate to="/login" state={{ from: location }} replace /> )
+     (<Navigate to="/login" state={{ from : location }} replace /> )
 }
 export { RequireAuth }

@@ -9,38 +9,3 @@ html{
 }
 
 
-.explore-header-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(187, 212, 212);
-    margin: 0;
-    padding: 0.5rem;
-
-
-}
-
-.explore-header-icon {
-    margin-right: auto;
-    align-self: flex-start;
-    font-size: 1.8rem;
-    margin: 0;
-    margin-top: 0.5rem;
-    margin-left: 1.5rem;
-
-
-
-
-}
-
-
-.explore-header-text {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 800;
-    align-self: center;
-    flex-grow: 1;
-    margin: 0;
-
-
-}

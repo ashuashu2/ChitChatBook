@@ -1,13 +1,16 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import "./Explore.css"
-import { IoArrowBackOutline } from "react-icons/io5";
 import { fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { PostComponent } from "../../components/componentsIndex";
+import { ArrowButtonHeader } from "../../components/ArrowButtonHeader/ArrowButtonHeader";
 
 function Explore(){
-    const { posts,status,error } = useSelector((state)=>state.postsSlice)
+    const { posts,status } = useSelector((state)=>state.postsSlice)
+    //  
+
      const dispatch = useDispatch()
+
 
     useEffect(()=>{
         if (status ==="initial") {
@@ -15,6 +18,8 @@ function Explore(){
         }
 
     },[dispatch,status])
+
+    
    
 
 
@@ -22,12 +27,9 @@ function Explore(){
 
     return (
         <div>
-             <div className="explore-header-div">
-                    <h4 className="explore-header-icon"> <IoArrowBackOutline /> </h4>
-                        <h4 className="explore-header-text"> Explore </h4>
-                </div>
+             <div> <ArrowButtonHeader pathname="Explore" /> </div>
             <div className="explore-page-main-div"> { posts.map((post)=>(
-           <div> <PostComponent posts={post} /> </div>
+           <div key={post._id}> <PostComponent posts={post} /> </div>
             )) }
              </div>
         </div>
