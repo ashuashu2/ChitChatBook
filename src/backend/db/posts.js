@@ -31,6 +31,30 @@ export const posts = [
   },
  
   {
+    _id: "xhzTkUiaaa",
+    content: "Good Food Only...",
+    mediaURL: "",
+    likes: {
+      likeCount: 5,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    comments: [
+      {
+        _id: "okzxcf",
+        username: "johndoe",
+        text: " Feels like we should go for dinner. What say?",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+    username: "ashutosh",
+    createdAt: "2022-01-10T10:55:06+05:30",
+    updatedAt: formatDate(),
+  },
+  {
     _id: "3XHvLP1fg",
     content: "I made this cake for my friend's birthday. Check it out",
     mediaURL:

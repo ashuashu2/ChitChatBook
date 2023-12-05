@@ -3,12 +3,75 @@ html{
 }
 .posts-bigger-div{
     padding: 1.5rem;
-    width: 100%;
-
     height: auto;
     margin: auto;
-    box-shadow: rgba(0, 0, 0, 0.05) 1px 0px 20px 8px;;
+    box-shadow: rgba(0, 0, 0, 0.05) 1px 0px 20px 8px;
     margin-top: 2rem;
+    position: relative;
+}
+.Edit-post-component{
+position: absolute;
+top: 10%;
+
+background-color: white;
+box-shadow: rgba(7, 4, 4, 0.05) 5px 5px 20px 10px ;
+width: 50%;
+padding: 1.5rem;
+margin: 2rem;
+z-index: 4;
+
+
+
+}
+
+.threeDots{
+    background-color: white;
+    font-size: 1.5rem;
+    border: 0;
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    z-index: 0;
+    cursor: pointer;
+
+}
+.edit-delete-button-div{
+    width: max-content;
+    background-color: rgb(250, 247, 247);
+    padding: 0.5rem;
+    box-shadow: rgba(7, 4, 4, 0.05) 2px 2px 2px 5px ;
+    z-index: 2;
+    text-align: left;
+    position: absolute;
+    top: 28px;
+    right: 35px;
+    
+
+}
+.edit-delete-button-div>hr{
+    width: 100%;
+    margin: 0.5rem 0rem;
+    padding: 0;
+}
+.edit-button{
+    margin: 0.5rem;
+    cursor: pointer;
+
+}
+.delete-button{
+    margin: 0.5rem;
+    cursor: pointer;
+
+}
+.edit-button:hover{
+    background-color: antiquewhite;
+    
+
+}
+.delete-button:hover{
+    background-color: antiquewhite;
+
+
 }
 
 .postcomponent-posts-names{
@@ -23,6 +86,7 @@ html{
 
 }
 
+
 .postcomponent-image{
     height: 5ch;
     width: 5ch;
@@ -36,6 +100,11 @@ html{
     text-decoration: none;
     
 
+}
+
+.mediaURL1{
+     height: 50vh;
+    width: 100%; 
 }
 
 hr{
@@ -98,9 +167,34 @@ embed{
     border: none;
     font-size: 1.5rem;
     background-color: white;
-    margin-right: 1.2rem;
     cursor: pointer;
 
+}
+.like-count{
+    margin-right: 1.2rem;
+
+
+}
+
+.add-comment-div{
+    display: flex;
+    margin-bottom: 1.2rem;
+
+}
+.add-comment-input{
+    flex-grow: 1;
+    border-radius: 1rem;
+    
+}
+.add-comment-button{
+    margin-left: auto;
+    background-color: black;
+    color: gold;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    
+    
 }
 .comment-icon{
     border: none;
@@ -137,6 +231,14 @@ embed{
 }
 .comment-box-name{
     font-weight: 800;
+}
+.delete-comment-button{
+    margin-left: auto;
+    outline: none;
+    background-color: white;
+    border: 0;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .comment-box-content{

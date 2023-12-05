@@ -9,29 +9,40 @@ import { useState } from "react";
 import { PostComponent } from "../../components/PostComponent/PostComponent";
 import { addNewPost, fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { formatDate } from "../../backend/utils/authUtils";
+import { toast } from "react-toastify";
 
 function Home() {
     const { posts } = useSelector((state) => state.postsSlice)
     const { userData, token } = useSelector((state) => state.authSlice)
-    const { users } = useSelector((state) => state.userSlice)
     const [statusInput, setStatusInput] = useState("")
-    const [postData, setPostsData] = useState()
-    const [postImageData, setPostsIamgeData] = useState([])
-    const dispatch = useDispatch()
-    
+    const [postImage, setPostsImage] = useState()
+    const [postImageName, setPostsImageName] = useState("")
 
-    useEffect(()=>{
+    const [postImageData, setPostsImageData] = useState([])
+    const dispatch = useDispatch()
+
+
+    useEffect(() => {
         dispatch(fetchPosts())
 
-    },[postImageData])
+    }, [postImageData])
 
 
 
     function postInputHandler(e) {
-        const newPostData = {
+        setPostsImage(URL.createObjectURL(e.target.files[0]))
+        setPostsImageName(e.target.files[0].name)
+
+    }
+   
+
+
+
+    async function postUploadHandler() {
+        const newData = {
             _id: uuid(),
             content: statusInput,
-            mediaURL: URL.createObjectURL(e.target.files[0]),
+            mediaURL1: postImage,
             likes: {
                 likeCount: 0,
                 likedBy: [],
@@ -43,21 +54,21 @@ function Home() {
             updatedAt: formatDate(),
 
         }
-       
-        setPostsData(newPostData)
-    }
 
+        setPostsImageData([...postImageData, newData]);
+        // if (statusInput.length >= 1) {
+            dispatch(addNewPost({ newPostData: newData, token }));
 
-    async function postUploadHandler() {
-
-        setPostsIamgeData([...postImageData, postData]);
-        dispatch(addNewPost({newPostData : postData,token}));
-         setPostsData();
+        // } else {
+        //     toast.error("please fill the details first")
+        // }
+        setPostsImage();
         setStatusInput("");
-       
+        setPostsImageName("")
+
 
     }
- 
+
 
 
 
@@ -71,15 +82,15 @@ function Home() {
                 <div className="homepage-newpost-main-div">
                     <div className="homepage-newpost-input-div">
                         <img className="homepage-profile-image" src={userData.avatarUrl ? userData.avatarUrl : avatarimage} alt="" />
-                        <textarea onChange={(e) => setStatusInput(e.target.value)} className="homepage-status-input" name="" placeholder="Whats happening?"  ></textarea>
+                        <textarea value={statusInput} onChange={(e) => setStatusInput(e.target.value)} className="homepage-status-input" name="" placeholder="Whats happening?"  ></textarea>
                     </div>
                     <hr className="homepage-hr" />
 
                     <div className="homepage-newpost-button-div">
                         <div className="homepage-galley-button-div">
-                            <label for="files" class="gallery-input-button"> <FaImage /> </label>
-                            <input onChange={postInputHandler} id="files" style={{ visibility: "hidden" }} type="file" />
-                            <p className={postData && "postimage-name"}> {postData && postData.mediaURL.name} </p>
+                            <label for="files" className="gallery-input-button"> <FaImage /> </label>
+                            <input onChange={postInputHandler} accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
+                            <div className={ postImageName.length >= 1 && "postimage-name"}> { postImageName} </div>
 
 
 
@@ -98,9 +109,9 @@ function Home() {
                         <PostComponent posts={post} />
                     )}
                 </div>
-                
+
                 <div className="new-posts-images-div">
-                    {  userData.following.map((user)=>posts.map((post) => post.username === user.username &&   
+                    {userData.following.map((user) => posts.map((post) => post.username === user.username &&
                         <PostComponent posts={post} />
                     ))}
                 </div>

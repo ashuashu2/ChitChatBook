@@ -4,6 +4,7 @@ html {
 
 .userCard-main-div {
     margin: auto;
+
 }
 
 .userdata-main-div {
@@ -11,13 +12,75 @@ html {
     padding: 1rem 2rem;
     width: 70%;
     margin: auto;
+    position: relative;
 
 
 
 }
 
+.updatemodel-main-div{
+    background-color: white;
+    z-index: 3;
+    position: absolute;
+    padding: 1.5rem;
+    top: 2%;
+    left: 10%;
+    width: 30vw;
 
+}
+.updatemodel-main-div>hr{
+    width: 100%;
+    margin: 1rem 0;
 
+}
+
+.updatemodel-editprofile-text-div {
+    display: flex;
+}
+
+.updatemodel-editprofile-x-button {
+    border: 0;
+    margin-left: auto;
+    background-color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.updatemodel-editprofile-avatar-div{
+    display: flex;
+   
+}
+.updatemodel-image-main-div{
+
+margin: auto;
+}
+.updatemodel-image-div {
+    position: relative;
+    width: 6ch;
+    height: 6ch;
+    border-color: 2px solid black;
+}
+
+.updatemodel-editprofile-avatar-icon{
+    color: black;
+    font-weight: 900;
+    border-radius: 50%;
+    font-size: 1.3rem;
+    position: absolute;
+    right:  0%;
+    bottom: 0;
+    cursor: pointer;
+    z-index: 4;
+}
+.updatemodel-editprofile-avatar-text{
+margin-right: 1.2rem;
+}
+
+.updatemodel-image{
+    border-radius: 50%;
+    width: 6ch;
+    height: 5ch;
+}
 
 .userCard-header-div {
     display: flex;
@@ -27,6 +90,27 @@ html {
     padding: 1rem;
 
 
+}
+.update-userdata-input{
+    margin-left: auto;
+    width: 60%;
+    border-radius: 1rem;
+    border-color: 1px solid black;
+    outline: none;
+}
+.update-userdata-button-div{
+   text-align: right;
+    width: 100%;
+    margin-top: 2rem;
+
+}
+.update-userdata-button{
+    width: max-content;
+    border-radius: 1rem;
+    background-color: black;
+    color: gold;
+    padding: 0.7rem;
+    cursor: pointer;
 }
 
 .userCard-header-icon {
@@ -102,20 +186,22 @@ html {
     font-weight: bolder;
     cursor: pointer;
 }
-.edit-profile-button-div{
+
+.edit-profile-button-div {
     position: relative;
 
 
 }
 
 .edit-profile-button {
-    cursor: pointer; 
+    cursor: pointer;
     font-size: 1.8rem;
     background-color: white;
     border: 0;
     border-radius: 50%;
 }
-.edit-profile-text{
+
+.edit-profile-text {
     background-color: rgb(243, 248, 247);
     box-shadow: 2px 2px 0px 0px rgb(243, 248, 247);
     font-weight: 600;
@@ -123,19 +209,21 @@ html {
     padding: 0.2rem 1rem;
     position: absolute;
     top: 70%;
-    right:  80%; 
+    right: 80%;
     display: none;
 }
 
-.edit-profile-button:hover + .edit-profile-text{
+.edit-profile-button:hover+.edit-profile-text {
     display: block;
 
 }
-.logout-button-div{
+
+.logout-button-div {
     position: relative;
 
 
 }
+
 .userCard-logout-button {
     background-color: black;
     color: gold;
@@ -148,7 +236,8 @@ html {
     font-weight: 900;
 
 }
-.logout-text{
+
+.logout-text {
     background-color: rgb(243, 248, 247);
     box-shadow: 2px 2px 0px 0px rgb(243, 248, 247);
     font-weight: 600;
@@ -156,13 +245,14 @@ html {
     padding: 0.2rem 1rem;
     position: absolute;
     top: 70%;
-    left:  80%; 
+    left: 80%;
     display: none;
 }
 
-.userCard-logout-button:hover + .logout-text{
-  display: block;
+.userCard-logout-button:hover+.logout-text {
+    display: block;
 }
+
 .userCard-bio-div {
     text-align: left;
 }
@@ -187,6 +277,27 @@ html {
 .followers-div {
     display: flex;
     justify-content: center;
+
+}
+
+.followers-component-div {
+    position: absolute;
+    top: 10%;
+    right: 18%;
+    box-shadow: 1px 1px 2px 2px black;
+    z-index: 2;
+    background-color: white;
+
+}
+
+.following-component-div {
+    position: absolute;
+    top: 10%;
+    right: 18%;
+    box-shadow: 1px 1px 2px 2px black;
+    z-index: 2;
+    background-color: white;
+
 }
 
 .followers-childs {
@@ -194,6 +305,7 @@ html {
 
     margin-top: 0rem;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .followers-childs:nth-child(1) {

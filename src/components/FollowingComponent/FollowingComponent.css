@@ -1,0 +1,39 @@
+.following-detail-main-div{
+    width: max-content;
+    padding: 1rem;
+    width: 30vw;
+}
+
+.following-text-div{
+    display: flex;
+}
+.following-text-div>button{
+    margin-left: auto;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
+.following-detail-div{
+    display: flex;
+    text-decoration: none;
+    color: black;
+
+}
+
+.following-detail-img-div{
+    width: max-content;
+    height: max-content;
+
+}
+.following-detail-img{
+    width: 8ch;
+    height: 6ch;
+    border-radius: 50%;
+    
+}
+
+
+.following-detail-name-div{
+    margin-left: auto;
+
+}

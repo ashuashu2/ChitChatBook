@@ -34,6 +34,7 @@ export const users = [
     avatarUrl:
       "https://e1.pxfuel.com/desktop-wallpaper/678/333/desktop-wallpaper-jennifer-winget-iphone-jennifer-winget-thumbnail.jpg",
     createdAt: "2022-01-01T10:55:06+05:30",
+    website: "https://jenniferwinget.netlify.app/",
     updatedAt: formatDate(),
   },
   {

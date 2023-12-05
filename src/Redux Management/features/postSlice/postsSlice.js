@@ -1,20 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addNewPost, fetchPosts } from "./postsServices";
-import {  addLikedPosts, removeLikedPosts } from "../postSlice/postsServices";
+import { addCommentInPosts, addNewPost, deletePost, editPostData, fetchPosts } from "./postsServices";
+import { addLikedPosts, removeLikedPosts } from "../postSlice/postsServices";
 
 
 
 const initialState = {
     posts: [],
-    likedPosts: JSON.parse(localStorage.getItem("likedPosts")) ?? [] ,
+    likedPosts: [],
     status: "initial",
-    error: null
+    error: null,
 }
 
 export const postsSlice = createSlice({
     name: "postSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        addCommentHandler: (state, action) => {
+            const postId = action.payload.postId
+            const newCommentData = action.payload.commentData
+            const newPostsData = state.posts.map((post) => post._id === postId ? { ...post, comments: [...post.comments, newCommentData] } : post)
+            state.posts = newPostsData
+        },
+        deleteCommentHandler: (state, action) => {
+            const postId = action.payload.postId
+            const commentId = action.payload.commentId
+            const newPostsData = state.posts.map((post) => post._id === postId ? { ...post, comments: post.comments.filter((c) => c._id !== commentId) } : post)
+            console.log(newPostsData)
+            state.posts = newPostsData
+        }
+    },
     extraReducers: {
         [fetchPosts.pending]: (state) => {
             state.status = "pending"
@@ -32,9 +46,7 @@ export const postsSlice = createSlice({
             state.status = "pending";
         },
         [addLikedPosts.fulfilled]: (state, action) => {
-            const allLikedosts = action.payload.filter((item)=>item.likes.likedBy.find((post)=>post.username === userData.username))
             state.likedPosts = action.payload
-            localStorage.setItem("likedPosts", JSON.stringify(allLikedosts) )
 
         },
         [addLikedPosts.rejected]: (state, action) => {
@@ -44,7 +56,7 @@ export const postsSlice = createSlice({
             state.status = "pending";
         },
         [removeLikedPosts.fulfilled]: (state, action) => {
-            const allLikedosts = action.payload.filter((item)=>item.likes.likedBy.find((post)=>post.username === userData.username))
+            const allLikedosts = action.payload.filter((item) => item.likes.likedBy.find((post) => post.username === userData.username))
             state.likedPosts = allLikedosts;
 
         },
@@ -55,14 +67,41 @@ export const postsSlice = createSlice({
             state.status = "pending";
         },
         [addNewPost.fulfilled]: (state, action) => {
-        
+
             state.likedPosts = action.payload.posts;
 
         },
         [addNewPost.rejected]: (state, action) => {
             state.error = action.payload;
         },
+        [deletePost.pending]: (state) => {
+            state.status = "pending";
+        },
+        [deletePost.fulfilled]: (state, action) => {
+
+            state.posts = action.payload.posts;
+
+        },
+        [deletePost.rejected]: (state, action) => {
+            state.error = action.payload;
+        },
+        [editPostData.pending]: (state) => {
+            state.status = "pending";
+        },
+        [editPostData.fulfilled]: (state, action) => {
+
+            state.posts = action.payload.posts;
+
+        },
+        [editPostData.rejected]: (state, action) => {
+            state.error = action.payload;
+        },
+
 
     }
 
 })
+export const { addCommentHandler } = postsSlice.actions
+export const { deleteCommentHandler } = postsSlice.actions
+
+

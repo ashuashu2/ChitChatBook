@@ -1,7 +1,7 @@
-import "./Likedposts.css"
 import { useSelector } from "react-redux"
 import { PostComponent } from "../../components/PostComponent/PostComponent";
 import { ArrowButtonHeader } from "../../components/ArrowButtonHeader/ArrowButtonHeader";
+import "./Likedposts.css"
 
 function LikedPosts(){
     const { likedPosts } = useSelector((state)=>state.postsSlice);
@@ -15,9 +15,9 @@ function LikedPosts(){
 
     return (
 
-        <div className="likedPostPage-main-div">
+        <div >
             <div> <ArrowButtonHeader pathname="Liked Posts" /> </div>
-                <div>
+                <div className="likedPostPage-main-div">
                     { allLikedPosts.length >=1 ?  allLikedPosts.map((item)=>(
                         <div key={item._id}>
                             <PostComponent  posts={item} />

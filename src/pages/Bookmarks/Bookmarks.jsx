@@ -14,7 +14,7 @@ function Bookmarks() {
         <div >
             <div> <ArrowButtonHeader pathname="Bookmark Posts" /> </div>
 
-            <div>
+            <div  className="bookmarksPage-main-div">
                 {userData.bookmarks.length >= 1 ?
                     (<div>
                         {userData.bookmarks.map((post) => (

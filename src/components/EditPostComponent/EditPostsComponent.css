@@ -1,0 +1,75 @@
+
+.EditPost-main-div>hr{
+    margin: 0.5rem 0rem;
+    width: 100%;
+    
+
+
+}
+
+.EditPost-text-div{
+    display: flex;
+
+    
+}
+.EditPost-text{
+    
+}
+.EditPost-x-button{
+    margin-left: auto;
+    border: 0;
+    background-color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    
+}
+.EditPost-content-div{
+    display: flex;
+    margin: 2rem 0rem;
+}
+.editpost-profile-image{
+    height: 5ch;
+    width: 6ch;
+    border-radius: 50%;
+
+}
+.editpost-content-text{
+    margin-left: auto;
+    color: black;
+    resize: none;
+    border: 0;
+    outline: none;
+    margin-left:  1rem;
+
+}
+
+.EditPost-button-div{
+    display: flex;
+    
+}
+.Faimage{
+    font-size: 1.2rem;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+
+
+}
+.postimage-name{
+    box-shadow:  1px 0px 20px 8px rgba(10, 9, 9, 0.05);
+    padding: 0.4rem;
+    width: max-content;
+    border-radius: 1rem;
+    background-color: rgb(187, 212, 212);
+    margin-top: 0.4rem;
+}
+.EditPost-update-button{
+    margin-left: auto;
+    background-color: black;
+    color: gold;
+    padding: 0.5rem;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    
+    
+}

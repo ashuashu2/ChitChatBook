@@ -1,0 +1,39 @@
+.followers-detail-main-div{
+    width: max-content;
+    padding: 1rem;
+    width: 30vw;
+}
+
+.follower-text-div{
+    display: flex;
+}
+.follower-text-div>button{
+    margin-left: auto;
+    border: 0;
+    background-color: white;
+    cursor: pointer;
+}
+.followers-detail-div{
+    display: flex;
+    text-decoration: none;
+    color: black;
+
+}
+
+.followers-detail-img-div{
+    width: max-content;
+    height: max-content;
+
+}
+.followers-detail-img{
+    width: 8ch;
+    height: 6ch;
+    border-radius: 50%;
+    
+}
+
+
+.followers-detail-name-div{
+    margin-left: auto;
+
+}

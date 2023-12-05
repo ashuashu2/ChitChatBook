@@ -4,6 +4,7 @@ import { FaMobileButton } from "react-icons/fa6";
 import { MdEmail, MdOutlineLogout } from "react-icons/md";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
+import { RxAvatar } from "react-icons/rx";
 import { useEffect } from "react";
 import avatarimage from "../../images/avatarimage.jpg"
 import "./UserCard.css";
@@ -12,6 +13,10 @@ import { fetchPosts } from "../../Redux Management/features/postSlice/postsServi
 import { PostComponent } from "../componentsIndex";
 import { logoutUser } from "../../Redux Management/features/authSlice/AuthSlice";
 import { followUser, unFollowUser } from "../../Redux Management/features/userSlice/userServices";
+import { FollowersComponent } from "../followersComponents/FollowersComponents";
+import { useState } from "react";
+import { FollowingComponent } from "../FollowingComponent/FollowingComponent";
+
 
 
 
@@ -23,6 +28,11 @@ function UserCard({ userData }) {
     const location = useLocation()
     const from = location?.state?.from.pathname
     const navigate = useNavigate()
+    const [isFollowerModel, setIsFollowerModel] = useState(false)
+    const [isFollowingModel, setIsFollowingModel] = useState(false)
+    const [isUpdateModel, setIsUpdateModel] = useState(false)
+
+
 
 
 
@@ -34,7 +44,7 @@ function UserCard({ userData }) {
     }, [dispatch, status])
 
 
-    const postsData = userData &&  posts.filter((post) => post.username === userData.username && post )
+    const postsData = userData && posts.filter((post) => post.username === userData.username && post)
 
 
     function followButtonHandler() {
@@ -63,8 +73,9 @@ function UserCard({ userData }) {
         <div>
             {userData && (<div className="userCard-main-div">
 
+
                 <div className="userCard-header-div">
-                    <div className="userCard-header-icon" onClick={() => navigate(from ? from : "/home")} > <IoArrowBackOutline /> </div>
+                    <div className="userCard-header-icon" onClick={() => navigate(from ? from : "/")} > <IoArrowBackOutline /> </div>
                     <div className="userCard-header-text">
                         <h5 className="userCard-header-text-name">{`${userData.firstName} ${userData.lastName}`} </h5>
 
@@ -72,6 +83,52 @@ function UserCard({ userData }) {
                     </div>
                 </div>
                 <div className="userdata-main-div">
+
+                    <div style={{display : isUpdateModel ? "unset" : "none"}} className="updatemodel-main-div">
+                        <div className="updatemodel-editprofile-text-div">
+                            <h2>Edit Profile</h2>
+                            <button onClick={()=>setIsUpdateModel(false)} className="updatemodel-editprofile-x-button"> X </button>
+                        </div>
+                        <hr />
+
+                        <div className="updatemodel-editprofile-avatar-div">
+                            <h4 className="updatemodel-editprofile-avatar-text">Avatar :</h4>
+                            <div className="updatemodel-image-main-div">
+                                <div className="updatemodel-image-div">
+                                <img className="updatemodel-image" src={authUserData.avatarUrl && authUserData.avatarUrl} alt="" />
+                                <label for="files" className="updatemodel-editprofile-avatar-icon"> <RxAvatar /> </label>
+                                <input accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
+                                </div>
+
+
+                            </div>
+                        </div>
+
+                        <div style={{display:"flex"}}>
+                            <h4>Name :</h4>
+                            <div style={{margin:"auto"}}> {authUserData.firstName} {authUserData.lastName} </div>
+                        </div>
+                        
+                        
+                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
+                            <h4>Username :</h4>
+                            <div style={{margin:"auto"}}> {authUserData.username}</div>
+                        </div>
+                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
+                            <h4>Bio :</h4>
+                            <textarea className="update-userdata-input" style={{resize:"none"}} name="" >{authUserData.bio}</textarea>
+                        </div>
+                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
+                            <h4>Website :</h4>
+                            <textarea className="update-userdata-input" style={{resize:"none"}} name="" >{authUserData.website}</textarea>
+                        </div>
+                        <div className="update-userdata-button-div">
+                            <button className="update-userdata-button">Update</button>
+                        </div>
+
+                        
+
+                    </div>
 
                     <div className="userdata-div">
                         <img className="userdata-image" src={userData.avatarUrl ? userData.avatarUrl : avatarimage} alt="" />
@@ -95,14 +152,14 @@ function UserCard({ userData }) {
 
                                 (<div className="userCard-follow-button-div">
                                     <div className="edit-profile-button-div">
-                                        <button className="edit-profile-button"><FaUserEdit /></button>
-                                        <small  className="edit-profile-text">Edit</small>
+                                        <button onClick={()=>setIsUpdateModel(true)} className="edit-profile-button"><FaUserEdit /></button>
+                                        <small className="edit-profile-text">Edit</small>
 
                                     </div>
-                                    
+
                                     <div className="logout-button-div">
                                         <button className="userCard-logout-button" onClick={() => dispatch(logoutUser())} > <MdOutlineLogout /></button>
-                                        <small  className="logout-text">logout</small>
+                                        <small className="logout-text">logout</small>
                                     </div>
 
 
@@ -127,11 +184,14 @@ function UserCard({ userData }) {
 
                     <hr className="userCard-hr" />
                     <div className="followers-div">
-                        <p className="followers-childs"> followings: {userData.following.length} </p>
+                        <p className="followers-childs" onClick={() => { setIsFollowingModel(true), setIsFollowerModel(false) }}> followings: {userData.following.length} </p>
+                        <div style={{ display: isFollowingModel ? "unset" : "none" }} className="following-component-div"> <FollowingComponent followUserData={userData.following} setIsFollowingModel={setIsFollowingModel} /> </div>
 
-                        <p className="followers-childs"> posts: {postsData.length} </p>
+                        <p className="followers-childs" > posts: {postsData.length} </p>
 
-                        <p className="followers-childs"> followers: {userData.followers.length} </p>
+                        <p className="followers-childs" onClick={() => { setIsFollowerModel(true), setIsFollowingModel(false) }}> followers: {userData.followers.length} </p>
+
+                        <div style={{ display: isFollowerModel ? "unset" : "none" }} className="followers-component-div"> <FollowersComponent followUserData={userData.followers} setIsFollowerModel={setIsFollowerModel} /> </div>
                     </div>
                     <hr className="userCard-hr" />
 
