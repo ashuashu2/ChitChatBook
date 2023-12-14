@@ -64,10 +64,11 @@ export const authSlice = createSlice({
         },
 
 
-        [editUserProfile.pending]: (state, action) => {
+        [editUserProfile.pending]: (state) => {
             state.status = "pending";
         },
         [editUserProfile.fulfilled]: (state, action) => {
+            console.log(action.payload)
     
             state.userData = action.payload;
         },

@@ -17,7 +17,6 @@ html {
 
 
 }
-
 .updatemodel-main-div{
     background-color: white;
     z-index: 3;
@@ -25,93 +24,11 @@ html {
     padding: 1.5rem;
     top: 2%;
     left: 10%;
-    width: 30vw;
-
-}
-.updatemodel-main-div>hr{
-    width: 100%;
-    margin: 1rem 0;
+    width: 25vw;
+    box-shadow: 2px 2px 10px 0px  rgb(14, 11, 11);
 
 }
 
-.updatemodel-editprofile-text-div {
-    display: flex;
-}
-
-.updatemodel-editprofile-x-button {
-    border: 0;
-    margin-left: auto;
-    background-color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.updatemodel-editprofile-avatar-div{
-    display: flex;
-   
-}
-.updatemodel-image-main-div{
-
-margin: auto;
-}
-.updatemodel-image-div {
-    position: relative;
-    width: 6ch;
-    height: 6ch;
-    border-color: 2px solid black;
-}
-
-.updatemodel-editprofile-avatar-icon{
-    color: black;
-    font-weight: 900;
-    border-radius: 50%;
-    font-size: 1.3rem;
-    position: absolute;
-    right:  0%;
-    bottom: 0;
-    cursor: pointer;
-    z-index: 4;
-}
-.updatemodel-editprofile-avatar-text{
-margin-right: 1.2rem;
-}
-
-.updatemodel-image{
-    border-radius: 50%;
-    width: 6ch;
-    height: 5ch;
-}
-
-.userCard-header-div {
-    display: flex;
-    text-align: left;
-    align-items: center;
-    background-color: rgb(187, 212, 212);
-    padding: 1rem;
-
-
-}
-.update-userdata-input{
-    margin-left: auto;
-    width: 60%;
-    border-radius: 1rem;
-    border-color: 1px solid black;
-    outline: none;
-}
-.update-userdata-button-div{
-   text-align: right;
-    width: 100%;
-    margin-top: 2rem;
-
-}
-.update-userdata-button{
-    width: max-content;
-    border-radius: 1rem;
-    background-color: black;
-    color: gold;
-    padding: 0.7rem;
-    cursor: pointer;
-}
 
 .userCard-header-icon {
     font-size: 2rem;

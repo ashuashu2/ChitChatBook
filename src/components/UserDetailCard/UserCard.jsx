@@ -4,7 +4,6 @@ import { FaMobileButton } from "react-icons/fa6";
 import { MdEmail, MdOutlineLogout } from "react-icons/md";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { FaHandPointRight } from "react-icons/fa";
-import { RxAvatar } from "react-icons/rx";
 import { useEffect } from "react";
 import avatarimage from "../../images/avatarimage.jpg"
 import "./UserCard.css";
@@ -16,6 +15,7 @@ import { followUser, unFollowUser } from "../../Redux Management/features/userSl
 import { FollowersComponent } from "../followersComponents/FollowersComponents";
 import { useState } from "react";
 import { FollowingComponent } from "../FollowingComponent/FollowingComponent";
+import { UserDetailModel } from "../userDetaiModel/UserDetailModel";
 
 
 
@@ -71,7 +71,8 @@ function UserCard({ userData }) {
 
     return (
         <div>
-            {userData && (<div className="userCard-main-div">
+            {userData && (
+            <div className="userCard-main-div"  >
 
 
                 <div className="userCard-header-div">
@@ -83,52 +84,8 @@ function UserCard({ userData }) {
                     </div>
                 </div>
                 <div className="userdata-main-div">
+                    <div style={{display : isUpdateModel ? "unset" : "none"}} className="updatemodel-main-div"> <UserDetailModel setIsUpdateModel={setIsUpdateModel} /> </div>
 
-                    <div style={{display : isUpdateModel ? "unset" : "none"}} className="updatemodel-main-div">
-                        <div className="updatemodel-editprofile-text-div">
-                            <h2>Edit Profile</h2>
-                            <button onClick={()=>setIsUpdateModel(false)} className="updatemodel-editprofile-x-button"> X </button>
-                        </div>
-                        <hr />
-
-                        <div className="updatemodel-editprofile-avatar-div">
-                            <h4 className="updatemodel-editprofile-avatar-text">Avatar :</h4>
-                            <div className="updatemodel-image-main-div">
-                                <div className="updatemodel-image-div">
-                                <img className="updatemodel-image" src={authUserData.avatarUrl && authUserData.avatarUrl} alt="" />
-                                <label for="files" className="updatemodel-editprofile-avatar-icon"> <RxAvatar /> </label>
-                                <input accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
-                                </div>
-
-
-                            </div>
-                        </div>
-
-                        <div style={{display:"flex"}}>
-                            <h4>Name :</h4>
-                            <div style={{margin:"auto"}}> {authUserData.firstName} {authUserData.lastName} </div>
-                        </div>
-                        
-                        
-                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
-                            <h4>Username :</h4>
-                            <div style={{margin:"auto"}}> {authUserData.username}</div>
-                        </div>
-                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
-                            <h4>Bio :</h4>
-                            <textarea className="update-userdata-input" style={{resize:"none"}} name="" >{authUserData.bio}</textarea>
-                        </div>
-                        <div style={{display:"flex" , marginTop:"1.3rem"}}>
-                            <h4>Website :</h4>
-                            <textarea className="update-userdata-input" style={{resize:"none"}} name="" >{authUserData.website}</textarea>
-                        </div>
-                        <div className="update-userdata-button-div">
-                            <button className="update-userdata-button">Update</button>
-                        </div>
-
-                        
-
-                    </div>
 
                     <div className="userdata-div">
                         <img className="userdata-image" src={userData.avatarUrl ? userData.avatarUrl : avatarimage} alt="" />

@@ -9,10 +9,9 @@ import { useState } from "react";
 import { PostComponent } from "../../components/PostComponent/PostComponent";
 import { addNewPost, fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { formatDate } from "../../backend/utils/authUtils";
-import { toast } from "react-toastify";
 
 function Home() {
-    const { posts } = useSelector((state) => state.postsSlice)
+    const { posts , sortingStatus } = useSelector((state) => state.postsSlice)
     const { userData, token } = useSelector((state) => state.authSlice)
     const [statusInput, setStatusInput] = useState("")
     const [postImage, setPostsImage] = useState()
@@ -25,7 +24,7 @@ function Home() {
     useEffect(() => {
         dispatch(fetchPosts())
 
-    }, [postImageData])
+    }, [postImageData,sortingStatus])
 
 
 
@@ -35,6 +34,7 @@ function Home() {
 
     }
    
+
 
 
 
@@ -56,12 +56,7 @@ function Home() {
         }
 
         setPostsImageData([...postImageData, newData]);
-        // if (statusInput.length >= 1) {
-            dispatch(addNewPost({ newPostData: newData, token }));
-
-        // } else {
-        //     toast.error("please fill the details first")
-        // }
+        dispatch(addNewPost({ newPostData: newData, token }));
         setPostsImage();
         setStatusInput("");
         setPostsImageName("")
@@ -90,7 +85,7 @@ function Home() {
                         <div className="homepage-galley-button-div">
                             <label for="files" className="gallery-input-button"> <FaImage /> </label>
                             <input onChange={postInputHandler} accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
-                            <div className={ postImageName.length >= 1 && "postimage-name"}> { postImageName} </div>
+                            <div className={postImageName.length >= 1 && "postimage-name"}> {postImageName} </div>
 
 
 

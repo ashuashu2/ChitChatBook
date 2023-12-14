@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addCommentInPosts, addNewPost, deletePost, editPostData, fetchPosts } from "./postsServices";
+import { addNewPost, deletePost, editPostData, fetchPosts } from "./postsServices";
 import { addLikedPosts, removeLikedPosts } from "../postSlice/postsServices";
 
 
@@ -9,6 +9,7 @@ const initialState = {
     likedPosts: [],
     status: "initial",
     error: null,
+    sortingStatus : "idle",
 }
 
 export const postsSlice = createSlice({
@@ -27,6 +28,19 @@ export const postsSlice = createSlice({
             const newPostsData = state.posts.map((post) => post._id === postId ? { ...post, comments: post.comments.filter((c) => c._id !== commentId) } : post)
             console.log(newPostsData)
             state.posts = newPostsData
+        },
+        changeSortingOfPosts: (state, action) => {
+             state.sortingStatus = action.payload ;
+
+            if(state.sortingStatus === "trending"){
+                state.posts.sort((a,b)=>b.likes.likeCount - a.likes.likeCount)
+            }else{
+                if (state.sortingStatus === "latest") {
+                state.posts.sort((a,b)=>new Date(b.createdAt) -  new Date(a.createdAt) )
+
+                    
+                }
+            }
         }
     },
     extraReducers: {
@@ -103,5 +117,7 @@ export const postsSlice = createSlice({
 })
 export const { addCommentHandler } = postsSlice.actions
 export const { deleteCommentHandler } = postsSlice.actions
+export const { changeSortingOfPosts } = postsSlice.actions
+
 
 

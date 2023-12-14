@@ -1,28 +1,26 @@
 import { useEffect, useState } from "react"
 import "./UsersFeed.css"
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { fetchUsers, followUser, unFollowUser } from "../../Redux Management/features/userSlice/userServices";
+import { changeSortingOfPosts } from "../../Redux Management/features/postSlice/postsSlice";
 
 function UserFeed() {
 
-    const { users, status } = useSelector((state) => state.userSlice)
-    const dispatch = useDispatch();
+    const { users } = useSelector((state) => state.userSlice)
     const { token, userData } = useSelector((state) => state.authSlice)
+    const dispatch = useDispatch();
+    const {pathname} = useLocation()
 
 
 
 
     useEffect(() => {
-        // if (status === "initial") {
             dispatch(fetchUsers())
-        // }
 
     }, [ dispatch,userData])
 
-    // console.log(userData)
-    // const allUsers = users &&  users.filter((user)=>user.followers.find((us)=>us.username !== userData.username && users ) )
-    // console.log(allUsers)
+   
 
     const sliceUsers =  users.slice(0,5)
 
@@ -38,6 +36,17 @@ function UserFeed() {
 
 
     }
+    function trendingButtonClickHandler(){
+        dispatch(changeSortingOfPosts("trending"))
+    
+
+    }
+    function latestButtonClickHandler(){
+        dispatch(changeSortingOfPosts("latest"))
+
+
+
+    }
 
 
 
@@ -46,6 +55,11 @@ function UserFeed() {
     return (
         <div >
             <div className="userfeed-bigger-div">
+            <div className="trending-button-div" style={{display: pathname === "/" ? "unset" :"none"}} >
+                <button className="trending-button" onClick={trendingButtonClickHandler}>Trending</button>
+                <button className="latest-button" onClick={latestButtonClickHandler}>Latest</button>
+
+             </div>
                 <h2 className="suggestion-text">  Suggestions For You </h2>
                 <div className="userfeed-div">
 

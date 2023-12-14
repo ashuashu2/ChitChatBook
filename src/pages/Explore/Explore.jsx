@@ -7,7 +7,6 @@ import { ArrowButtonHeader } from "../../components/ArrowButtonHeader/ArrowButto
 
 function Explore(){
     const { posts,status } = useSelector((state)=>state.postsSlice)
-    //  
 
      const dispatch = useDispatch()
 
