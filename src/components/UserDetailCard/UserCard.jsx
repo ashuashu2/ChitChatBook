@@ -170,7 +170,7 @@ function UserCard({ userData }) {
 
                         {posts.map((post) => post.username === userData.username && (
 
-                            <div>
+                            <div key={post._id}>
                                 <PostComponent posts={post} />
                             </div>
                         ))

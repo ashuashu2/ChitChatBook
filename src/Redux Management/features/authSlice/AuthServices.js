@@ -38,11 +38,9 @@ export const loginHandler = createAsyncThunk("authSlice/loginHandler", async (da
 export const editUserProfile = createAsyncThunk(
     "authSlice/editUserProfile",
     async ({ userDetails, token }, { rejectWithValue }) => {
-        console.log(userDetails)
 
         try {
             const resp = await axios.post("/api/users/edit",{ userDetails }, { headers: { authorization: token }});
-            console.log(resp)
             return resp.data.user;
         } catch (error) {
             console.error(error.response.data);

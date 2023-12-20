@@ -18,7 +18,7 @@ function Bookmarks() {
                 {userData.bookmarks.length >= 1 ?
                     (<div>
                         {userData.bookmarks.map((post) => (
-                            <div>
+                            <div key={post._id}>
                                 <PostComponent posts={post} />
                             </div>
 

@@ -5,7 +5,6 @@ import "./Likedposts.css"
 
 function LikedPosts(){
     const { likedPosts } = useSelector((state)=>state.postsSlice);
-    const { userData } = useSelector((state)=>state.authSlice);
    
 
 

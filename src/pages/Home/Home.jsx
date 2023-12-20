@@ -9,9 +9,10 @@ import { useState } from "react";
 import { PostComponent } from "../../components/PostComponent/PostComponent";
 import { addNewPost, fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { formatDate } from "../../backend/utils/authUtils";
+import { toast } from "react-toastify";
 
 function Home() {
-    const { posts , sortingStatus } = useSelector((state) => state.postsSlice)
+    const { posts, sortingStatus } = useSelector((state) => state.postsSlice)
     const { userData, token } = useSelector((state) => state.authSlice)
     const [statusInput, setStatusInput] = useState("")
     const [postImage, setPostsImage] = useState()
@@ -24,7 +25,7 @@ function Home() {
     useEffect(() => {
         dispatch(fetchPosts())
 
-    }, [postImageData,sortingStatus])
+    }, [postImageData, sortingStatus])
 
 
 
@@ -33,7 +34,7 @@ function Home() {
         setPostsImageName(e.target.files[0].name)
 
     }
-   
+
 
 
 
@@ -56,10 +57,15 @@ function Home() {
         }
 
         setPostsImageData([...postImageData, newData]);
-        dispatch(addNewPost({ newPostData: newData, token }));
-        setPostsImage();
-        setStatusInput("");
-        setPostsImageName("")
+        if (statusInput.length >= 1 || postImage) {
+            dispatch(addNewPost({ newPostData: newData, token }));
+            setPostsImage();
+            setStatusInput("");
+            setPostsImageName("")
+
+        } else {
+            toast.error("please fill something")
+        }
 
 
     }
@@ -85,7 +91,7 @@ function Home() {
                         <div className="homepage-galley-button-div">
                             <label for="files" className="gallery-input-button"> <FaImage /> </label>
                             <input onChange={postInputHandler} accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
-                            <div className={postImageName.length >= 1 && "postimage-name"}> {postImageName} </div>
+                            <div className={postImageName.length >= 1 ? "postimage-name" : undefined}> {postImageName} </div>
 
 
 
@@ -101,13 +107,13 @@ function Home() {
 
                 <div className="new-posts-images-div">
                     {posts.map((post) => post.username === userData.username &&
-                        <PostComponent posts={post} />
+                        <PostComponent key={post._id}  posts={post} />
                     )}
                 </div>
 
                 <div className="new-posts-images-div">
                     {userData.following.map((user) => posts.map((post) => post.username === user.username &&
-                        <PostComponent posts={post} />
+                        <PostComponent key={post._id}  posts={post} />
                     ))}
                 </div>
 

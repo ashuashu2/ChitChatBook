@@ -71,7 +71,7 @@ export const postsSlice = createSlice({
         },
         [addNewPost.fulfilled]: (state, action) => {
 
-            state.likedPosts = action.payload.posts;
+            state.posts = action.payload.posts;
 
         },
         [addNewPost.rejected]: (state, action) => {

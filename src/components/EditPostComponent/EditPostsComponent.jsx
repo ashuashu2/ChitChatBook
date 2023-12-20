@@ -10,7 +10,7 @@ import { editPostData } from "../../Redux Management/features/postSlice/postsSer
 function EditPostComponent({ PostsData, buttonHandler }) {
     const [postImageName, setPostImageName] = useState("")
     const [postImage, setPostImage] = useState()
-    const [statusInput, setStatusInput] = useState("")
+    const [statusInput, setStatusInput] = useState(PostsData.content)
     const dispatch = useDispatch()
 
     const { userData, token } = useSelector((state) => state.authSlice)
@@ -58,7 +58,7 @@ function EditPostComponent({ PostsData, buttonHandler }) {
             <hr />
             <div className="EditPost-content-div">
                 <img className="editpost-profile-image" src={userData.avatarUrl} alt="/" />
-                <textarea onChange={(e) => setStatusInput(e.target.value)} className="editpost-content-text">{PostsData.content}</textarea>
+                <textarea  value={statusInput} onChange={(e) => setStatusInput(e.target.value)} className="editpost-content-text">{PostsData.content}</textarea>
 
             </div>
             <hr />
@@ -69,7 +69,7 @@ function EditPostComponent({ PostsData, buttonHandler }) {
 
             </div>
             <hr />
-            <div className={postImageName.length >= 1 && "postimage-name"}> {postImageName} </div>
+            <div className={postImageName.length >= 1 ? "postimage-name" : undefined}> {postImageName} </div>
         </div>
     )
 }

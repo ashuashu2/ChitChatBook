@@ -17,7 +17,7 @@ export const authSlice = createSlice({
     name: "authSlice",
     initialState,
     reducers: {
-        logoutUser: (state) => {
+        logoutUser : (state) => {
             localStorage.removeItem("token");
             localStorage.removeItem("authUser");
             state.token = null;
@@ -27,6 +27,12 @@ export const authSlice = createSlice({
             state.login = false;
             
         },
+
+        updateUserDataHandler : (state,action)=>{
+            state.userData = { ...state.userData , firstName : action.payload.firstName , lastName : action.payload.lastName ,  website : action.payload.website ,  bio : action.payload.bio , avatarUrl  : action.payload.avtarImage  };
+        } 
+
+
 
     },
     extraReducers: {
@@ -61,13 +67,10 @@ export const authSlice = createSlice({
 
         },
 
-
         [editUserProfile.pending]: (state) => {
             state.status = "pending";
         },
-        [editUserProfile.fulfilled]: (state, action) => {
-            console.log(action.payload)
-    
+        [editUserProfile.fulfilled]: (state, action) => {    
             state.userData = action.payload;
         },
         [editUserProfile.rejected]: (state, action) => {
@@ -97,4 +100,4 @@ export const authSlice = createSlice({
     }
 });
 
-export const { logoutUser } = authSlice.actions 
+export const { logoutUser  , updateUserDataHandler } = authSlice.actions 

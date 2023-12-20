@@ -10,7 +10,6 @@ import { AiFillDelete } from "react-icons/ai";
 import { v4 as uuid } from 'uuid';
 import { useEffect } from "react";
 import { deletePost, fetchPosts } from "../../Redux Management/features/postSlice/postsServices";
-import { addLikedPosts, removeLikedPosts } from "../../Redux Management/features/postSlice/postsServices";
 import { addBookMarkPosts, removeBookMarkPosts } from "../../Redux Management/features/authSlice/AuthServices";
 import { useState } from "react";
 import { EditPostComponent } from "../EditPostComponent/EditPostsComponent";
@@ -41,6 +40,8 @@ function PostComponent({ posts }) {
         }
 
     }, [dispatch, status])
+
+   
 
 
     function commentButtonHandler() {
@@ -108,7 +109,7 @@ function PostComponent({ posts }) {
                         </div>
                         <div>
                             {users.map((us) => us.username === posts.username &&
-                                <Link key={us._id} className="postcomponent-page-link" to={`/profile/${us._id}`}><img className="postcomponent-image" src={us.avatarUrl} alt="/" /></Link>
+                                <Link key={us._id} className="postcomponent-page-link" to={`/profile/${us._id}`}><img className="postcomponent-image" src={ posts.username === userData.username ? userData.avatarUrl :  us.avatarUrl} alt="/" /></Link>
                             )
                             }
                         </div>
@@ -116,8 +117,8 @@ function PostComponent({ posts }) {
                         <div className="postcomponent-posts-userName" >
                             {users.map((us) => us.username === posts.username &&
                                 <Link key={us._id} className="postcomponent-page-link" to={`/profile/${us._id}`}>
-                                    <p className="postcomponent-posts-names" >{us.firstName + us.lastName}</p>
-                                    <p className="username"> {`@${us.username}`} </p>
+                                    <p className="postcomponent-posts-names" >{ posts.username === userData.username ? userData.firstName + userData.lastName :   us.firstName + us.lastName}</p>
+                                    <p className="username"> {`@${ posts.username === userData.username ? userData.username :  us.username}`} </p>
 
                                 </Link>
 

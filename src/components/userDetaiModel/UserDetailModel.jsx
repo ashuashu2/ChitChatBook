@@ -4,22 +4,24 @@ import { FaCamera } from "react-icons/fa";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { editUserProfile } from "../../Redux Management/features/authSlice/AuthServices";
+import { updateUserDataHandler } from "../../Redux Management/features/authSlice/AuthSlice";
 
 
 function UserDetailModel({ setIsUpdateModel }) {
-    const { userData, token } = useSelector((state) => state.authSlice);
+    const { userData } = useSelector((state) => state.authSlice);
     const dispatch = useDispatch()
+    const [firstName, setfirstName] = useState(userData.firstName);
+    const [lastName, setLastName] = useState(userData.lastName);
     const [website, setWebsite] = useState(userData.website);
     const [bio, setBio] = useState(userData.bio);
-    const [firstName, setfirstName] = useState(userData.firstName);
+    const [avtarImage, setAvatarImage] = useState(userData.avatarUrl);
+
 
     function updateUserDetailsHandler() {
 
         try {
-            dispatch(
-                editUserProfile({ userDetails: { firstName, website, bio }, token })
+            dispatch( updateUserDataHandler({  firstName ,lastName , website , bio , avtarImage  }) );
 
-            );
             setIsUpdateModel(false)
 
         } catch (error) {
@@ -41,9 +43,9 @@ function UserDetailModel({ setIsUpdateModel }) {
             <div className="updatemodel-editprofile-avatar-div">
                 <div className="updatemodel-image-main-div">
                     <div className="updatemodel-image-div">
-                        <img className="updatemodel-image" src={userData.avatarUrl && userData.avatarUrl} alt="" />
+                        <img className="updatemodel-image" src={ avtarImage ? avtarImage :  userData.avatarUrl } alt="" />
                         <label for="files" className="updatemodel-editprofile-avatar-icon"> <FaCamera /> </label>
-                        <input accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
+                        <input onChange={(e)=> setAvatarImage(URL.createObjectURL(e.target.files[0])) }  accept=".png, .jpg, .jpeg" id="files" style={{ visibility: "hidden" }} type="file" />
                     </div>
 
 
@@ -51,22 +53,24 @@ function UserDetailModel({ setIsUpdateModel }) {
             </div>
 
             <fieldset className="fieldset-div" >
-                <legend>Name :</legend>
-                <textarea onChange={(e) => setfirstName(e.target.value)} className="update-userdata-textarea" name="" >{userData.firstName}</textarea>
+                <legend>FirstName :</legend>
+                <textarea  value={firstName}   onChange={(e) => setfirstName(e.target.value)} className="update-userdata-textarea" name="" >{userData.firstName}</textarea>
+            </fieldset>
+
+            <fieldset className="fieldset-div" >
+                <legend>LastName :</legend>
+                <textarea  value={lastName}   onChange={(e) => setLastName(e.target.value)} className="update-userdata-textarea" name="" >{userData.lastName}</textarea>
             </fieldset>
 
 
-            <fieldset className="fieldset-div">
-                <legend>Username :</legend>
-                <textarea onChange={(e) => setUpdatedData((oldData) => ({ ...oldData, username: e.target.value }))} className="update-userdata-textarea" name="" >{userData.username}</textarea>
-            </fieldset>
+            
             <fieldset className="fieldset-div" >
                 <legend>Bio :</legend>
-                <textarea onChange={(e) => setBio(e.target.value)} className="update-userdata-textarea" name="" >{userData.bio}</textarea>
+                <textarea  value={bio}   onChange={(e) => setBio(e.target.value)} className="update-userdata-textarea" name="" >{userData.bio}</textarea>
             </fieldset >
             <fieldset className="fieldset-div" >
                 <legend>Website :</legend>
-                <textarea onChange={(e) => setWebsite(e.target.value)} className="update-userdata-textarea" name="" >{userData.website}</textarea>
+                <textarea  value={website}   onChange={(e) => setWebsite(e.target.value)} className="update-userdata-textarea" name="" >{userData.website}</textarea>
             </fieldset >
             <div className="update-userdata-button-div">
                 <button className="update-userdata-button" onClick={updateUserDetailsHandler}>Update</button>
