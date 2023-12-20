@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { addNewPost, deletePost, editPostData, fetchPosts } from "./postsServices";
-import { addLikedPosts, removeLikedPosts } from "../postSlice/postsServices";
+import { toast } from "react-toastify";
 
 
 
@@ -9,7 +9,6 @@ const initialState = {
     likedPosts: [],
     status: "initial",
     error: null,
-    sortingStatus : "idle",
 }
 
 export const postsSlice = createSlice({
@@ -26,21 +25,33 @@ export const postsSlice = createSlice({
             const postId = action.payload.postId
             const commentId = action.payload.commentId
             const newPostsData = state.posts.map((post) => post._id === postId ? { ...post, comments: post.comments.filter((c) => c._id !== commentId) } : post)
-            console.log(newPostsData)
             state.posts = newPostsData
         },
         changeSortingOfPosts: (state, action) => {
-             state.sortingStatus = action.payload ;
 
-            if(state.sortingStatus === "trending"){
+            if(action.payload === "trending"){
                 state.posts.sort((a,b)=>b.likes.likeCount - a.likes.likeCount)
             }else{
-                if (state.sortingStatus === "latest") {
+                if (action.payload === "latest") {
                 state.posts.sort((a,b)=>new Date(b.createdAt) -  new Date(a.createdAt) )
 
                     
                 }
             }
+        },
+
+        addLikedPost: (state,action)=>{
+            const newPostData = action.payload;
+            state.posts = state.posts.map((post)=> post._id === newPostData._id ? {...post ,likes : { ...post.likes , likeCount : post.likes.likeCount + 1} } : post) ; 
+            state.likedPosts = [...state.likedPosts , newPostData];
+            toast.success("post successfully added in liked")
+        },
+        removeLikedPost: (state,action)=>{
+            const newPostData = action.payload;
+            state.posts = state.posts.map((post)=> post._id === newPostData._id ? {...post ,likes : { ...post.likes , likeCount : post.likes.likeCount - 1} } : post) ; 
+            state.likedPosts = state.likedPosts.filter((posts)=>posts._id !== newPostData._id);
+            toast.success("post successfully removed from liked")
+
         }
     },
     extraReducers: {
@@ -54,28 +65,6 @@ export const postsSlice = createSlice({
         [fetchPosts.rejected]: (state, action) => {
             state.status = "error"
             state.error = "error..."
-        },
-
-        [addLikedPosts.pending]: (state) => {
-            state.status = "pending";
-        },
-        [addLikedPosts.fulfilled]: (state, action) => {
-            state.likedPosts = action.payload
-
-        },
-        [addLikedPosts.rejected]: (state, action) => {
-            state.error = action.payload;
-        },
-        [removeLikedPosts.pending]: (state) => {
-            state.status = "pending";
-        },
-        [removeLikedPosts.fulfilled]: (state, action) => {
-            const allLikedosts = action.payload.filter((item) => item.likes.likedBy.find((post) => post.username === userData.username))
-            state.likedPosts = allLikedosts;
-
-        },
-        [removeLikedPosts.rejected]: (state, action) => {
-            state.error = action.payload;
         },
         [addNewPost.pending]: (state) => {
             state.status = "pending";
@@ -118,6 +107,10 @@ export const postsSlice = createSlice({
 export const { addCommentHandler } = postsSlice.actions
 export const { deleteCommentHandler } = postsSlice.actions
 export const { changeSortingOfPosts } = postsSlice.actions
+export const { addLikedPost } = postsSlice.actions
+export const { removeLikedPost } = postsSlice.actions
+
+
 
 
 

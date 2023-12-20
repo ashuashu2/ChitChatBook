@@ -1,10 +1,12 @@
 import axios from "axios";
 import "./Login.css"
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { loginHandler } from "../../Redux Management/features/authSlice/AuthServices";
+import { useDispatch } from "react-redux";
+import { loginHandler, signupHandler } from "../../Redux Management/features/authSlice/AuthServices";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import ashu from "../../images/ashu.jpg"
+
 
 function LoginComponent() {
 
@@ -29,7 +31,7 @@ function LoginComponent() {
           setTimeout(() => {
             navigate(from ? from : "/");
             toast.success(`login succesfully! Welcome ${username} `)
-            
+
           }, 500);
         })
 
@@ -45,36 +47,50 @@ function LoginComponent() {
 
   }
 
-  function guestButtonHandler(){
+  function guestButtonHandler() {
     {
       const data = {
+        firstName: "Ashutosh",
+        lastName: "Birthare",
+        email: "ashutoshbirthare.123@gmail.com",
         username: "ashutosh",
-        password: "ashu@shu12"
+        password: "ashu@shu12",
+        bio: "Aspiring Frontend Engineer",
+        avatarUrl: ashu,
+        website: "https://ashutoshportfolios.netlify.app/",
+        createdAt: "2022-01-04T10:55:06+05:30",
+      };
+
+      const loginData = {
+        username: "ashutosh",
+        password: "ashu@shu12",
+
       }
+
       try {
-        if (data.username.length >= 1 && data.password.length >= 1) {
-          dispatch(loginHandler(data)).then(() => {
+        dispatch(signupHandler(data))
+          .then(() => dispatch(loginHandler(loginData)))
+          .then(() => {
             setTimeout(() => {
               navigate(from ? from : "/");
-              toast.success(`login succesfully! Welcome Again ${data.username} `)
+              toast.success(`login succesfully! Welcome Again ${loginData.username} `)
 
             }, 500);
-          }).catch(()=>{
-            navigate("/signup");
-            toast.warning("please signup first ")
+          })
+          .catch(() => {
+            window.location.reload()
+            toast.warning("please try again")
 
 
           })
-  
-        } else {
-          toast.info("please fill all the credentials")
-        }
+
+
       } catch (error) {
         console.log(error)
-  
+
       }
     }
-  } 
+  }
 
 
   return (

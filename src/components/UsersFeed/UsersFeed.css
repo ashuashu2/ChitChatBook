@@ -18,19 +18,18 @@ html{
     width: 100%;
 }
 .trending-button{
-    background-color: black;
-    color: gold;
+   
     padding: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.7rem;
+    cursor: pointer;
 
 }
 
 .latest-button{
     padding: 0.5rem;
-    background-color: white;
-    color: black;
     margin-left: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
+    cursor: pointer;
 
 
 
@@ -39,7 +38,7 @@ html{
 .suggestion-text{
     font-style: oblique;
     margin-bottom: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 .users-main-div{

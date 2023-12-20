@@ -11,6 +11,7 @@ function UserFeed() {
     const { token, userData } = useSelector((state) => state.authSlice)
     const dispatch = useDispatch();
     const {pathname} = useLocation()
+    const [highliteButton ,setHighliteButton] = useState("latest")
 
 
 
@@ -38,11 +39,14 @@ function UserFeed() {
     }
     function trendingButtonClickHandler(){
         dispatch(changeSortingOfPosts("trending"))
+        setHighliteButton("trending")
     
 
     }
     function latestButtonClickHandler(){
         dispatch(changeSortingOfPosts("latest"))
+        setHighliteButton("latest")
+
 
 
 
@@ -56,8 +60,8 @@ function UserFeed() {
         <div >
             <div className="userfeed-bigger-div">
             <div className="trending-button-div" style={{display: pathname === "/" ? "unset" :"none"}} >
-                <button className="trending-button" onClick={trendingButtonClickHandler}>Trending</button>
-                <button className="latest-button" onClick={latestButtonClickHandler}>Latest</button>
+                <button className="trending-button" style={{ backgroundColor : highliteButton === "trending" && "black", color :  highliteButton === "trending" && "gold"}}  onClick={trendingButtonClickHandler}>Trending</button>
+                <button  style={{ backgroundColor : highliteButton === "latest" && "black", color :  highliteButton === "latest" && "gold"}} className="latest-button" onClick={latestButtonClickHandler}>Latest</button>
 
              </div>
                 <h2 className="suggestion-text">  Suggestions For You </h2>

@@ -2,17 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { addBookMarkPosts, editUserProfile, loginHandler, removeBookMarkPosts, signupHandler } from "./AuthServices";
 
 
-
-
-
 const initialState = {
-    userData: JSON.parse(localStorage.getItem("authUser")) ?? {},
-    login: JSON.parse(localStorage.getItem("authUser")) ? true : false,
-    token: localStorage.getItem("token") ?? "",
+    userData: {},
+    login: false,
+    token: "",
     status: "",
     error: null,
 
 }
+
 
 export const authSlice = createSlice({
 

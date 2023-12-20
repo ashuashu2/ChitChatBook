@@ -6,9 +6,6 @@ import "./Likedposts.css"
 function LikedPosts(){
     const { likedPosts } = useSelector((state)=>state.postsSlice);
     const { userData } = useSelector((state)=>state.authSlice);
-    
-     const allLikedPosts = likedPosts.filter((item)=>item.likes.likedBy.find((post)=>post.username === userData.username))
-    
    
 
 
@@ -18,7 +15,7 @@ function LikedPosts(){
         <div >
             <div> <ArrowButtonHeader pathname="Liked Posts" /> </div>
                 <div className="likedPostPage-main-div">
-                    { allLikedPosts.length >=1 ?  allLikedPosts.map((item)=>(
+                    { likedPosts.length >=1 ?  likedPosts.map((item)=>(
                         <div key={item._id}>
                             <PostComponent  posts={item} />
 

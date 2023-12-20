@@ -15,7 +15,7 @@ import { addBookMarkPosts, removeBookMarkPosts } from "../../Redux Management/fe
 import { useState } from "react";
 import { EditPostComponent } from "../EditPostComponent/EditPostsComponent";
 import { toast } from "react-toastify";
-import { addCommentHandler, deleteCommentHandler } from "../../Redux Management/features/postSlice/postsSlice";
+import { addCommentHandler, addLikedPost, deleteCommentHandler, removeLikedPost } from "../../Redux Management/features/postSlice/postsSlice";
 
 function PostComponent({ posts }) {
 
@@ -27,6 +27,7 @@ function PostComponent({ posts }) {
     const [isEditModelOpen, setIsEditModelOpen] = useState(false)
     const [commentText, setCommentText] = useState("")
     const { postId } = useParams()
+
 
 
     const dispatch = useDispatch()
@@ -138,9 +139,9 @@ function PostComponent({ posts }) {
                     <div className="postcomponent-buttons-div">
                         <div> {likedPosts.some((item) => item._id === posts._id)
 
-                            ? (<button className="liked-button" onClick={() => dispatch(removeLikedPosts({ postID: posts._id, token }))} > <FaHeart />
+                            ? (<button className="liked-button" onClick={() => dispatch(removeLikedPost(posts))} > <FaHeart />
                             </button>)
-                            : (<button className="liked-button" onClick={() => dispatch(addLikedPosts({ postID: posts._id, token }))} > <FaRegHeart /> </button>)}
+                            : (<button className="liked-button" onClick={() => dispatch(addLikedPost(posts))} > <FaRegHeart /> </button>)}
                         </div>
                         <p className="like-count">{posts.likes.likeCount} </p>
 
