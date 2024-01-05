@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+Chit-Chat
+Chit-Chat is an online website where you can follow/un-follow other users, post text, images,comment, like, bookmark on posts , liked on posts.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Link
 
-## Available Scripts
+[Chit-Chat](https://chit-chat-book.vercel.app/)
 
-In the project directory, you can run:
 
-### `yarn start`
+# Pages Till Now
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Home Page
+* Explore Page
+* Profile Page
+* Login Page
+* Signup Page
+* Bookmark Posts Page
+* Liked Posts Page
+* Single Posts Page
+* Error 404 Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+# Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Home Page
 
-### `yarn build`
+* Create Post : A section,from where user can post text and images on his feed.
+* Follow User: A section where user can follow/unfollow others.
+* Posts: A section where you can see what others have posted.
+* Bookmark: User can see his bookmarked posts.
+* Liked: User can see his Liked posts.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Profile Page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Personal Details: user can edit his personal details.
+* Posts: User can see his own posts.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Post Card
 
-### `yarn eject`
+* Edit : User can edit his post.
+* Delete: User can delete his post.
+* Like/dislike - User can like/dislike other's posts.
+* Bookmark: User can bookmarked his favorites posts.
+* Comment: User can comment to any posts.
+* Edit comment: user can edit his own comment
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Signup Page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Signin user.
+* Personal details feilds.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Login Page
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Add details feilds.
+* Login user.
+* Guest login.
 
-## Learn More
+# Error 404 Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* 404 page for unknown route.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Technology
+* React
+* Redux Toolkit
+* Css
+* Javascript
 
-### Code Splitting
+# Author
+* Ashutosh Birthare
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# 👨‍💻 Connect with me
+* [Linkedin](https://www.linkedin.com/in/ashutosh-birthare/)
+* [Twitter](https://twitter.com/AshutoshBi49886)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Images
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
