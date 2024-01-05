@@ -28,7 +28,7 @@ Live Link
 * Bookmark: User can see his bookmarked posts.
 * Liked: User can see his Liked posts.
 
-![HomePage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/1ad97f1f-7776-42e8-9242-5aa37f4e20dc)
+![HomePage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/edab7223-cb0e-4eb6-89d2-cc2659bc06c0)
 
 
 ## Explore Page
@@ -46,7 +46,7 @@ Live Link
 * Personal Details: user can edit his personal details.
 * Posts: User can see his own posts.
 
-![ProfilePage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/ade353da-fce2-4ece-9ee1-9710d102838c)
+![ProfilePage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/f51c193f-279b-423d-b8c9-f60c0c8640e6)
 
 
 ## Bookmark Page
@@ -68,7 +68,7 @@ Live Link
 * Comment: User can comment to any posts.
 * Edit comment: user can edit his own comment
 
-  ![PostCard Page](https://github.com/ashuashu2/ChitChatBook/assets/86846323/1c219352-f5af-4211-ba60-84dc05c2d8c1)
+![PostCard Page](https://github.com/ashuashu2/ChitChatBook/assets/86846323/b24063f5-c065-43ae-9e28-ba8ed3dd0c08)
 
 
 # Signup Page
@@ -76,7 +76,7 @@ Live Link
 * Signin user.
 * Personal details feilds.
 
- ![SignupPage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/45ebee86-a573-4ae0-a686-17604d87e2cf)
+![SignupPage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/de7f5acc-7c49-4f45-9e94-51e39047ab7b)
 
 
 # Login Page
@@ -85,7 +85,7 @@ Live Link
 * Login user.
 * Guest login.
 
-  ![LoginPage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/24c721ed-ea46-4fbb-8931-6cd7bffd7d37)
+![LoginPage](https://github.com/ashuashu2/ChitChatBook/assets/86846323/db42e141-960c-415b-a985-e32d90b34511)
 
 
 # Error 404 Page
