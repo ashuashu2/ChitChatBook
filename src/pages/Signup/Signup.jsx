@@ -24,7 +24,7 @@ function SignupComponent() {
       bio: "Aspiring Frontend Engineer",
       website: `https://${firstName}${lastName}.netlify.app/`,
     };
-    
+
     try {
       if (
         firstName.length >= 1 &&
@@ -47,12 +47,6 @@ function SignupComponent() {
       toast.error("something is not right please try after some times");
     }
   }
-
-  console.log(firstName);
-  console.log(lastName);
-  console.log(email);
-  console.log(username);
-  console.log(password);
 
   return (
     <div className="signup-main-div">
