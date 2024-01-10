@@ -22,8 +22,9 @@ function SignupComponent() {
       username: username,
       password: password,
       bio: "Aspiring Frontend Engineer",
+      website: `https://${firstName}${lastName}.netlify.app/`,
     };
-
+    
     try {
       if (
         firstName.length >= 1 &&
